@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-3.2.xsd
+						http://www.springframework.org/schema/aop
+						http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+	<context:property-placeholder location = "classpath:com/flea/config/config.properties"/>
+	<!-- dbcp数据源 -->
+	<bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="username" value="${fUserName}"></property>
+		<!-- <property name="password" value="a942170996"></property>
+		<property name="username" value="testFlea"></property> -->
+		<property name="maxActive" value="${maxActive}"></property>
+		<property name="minIdle" value="${minIdle}"></property>
+		<property name="maxWait" value="${maxWait}"></property>
+	</bean>
+	
+	<!-- <bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
+		<property name="password" value="a942170996"></property>
+		<property name="username" value="testFlea"></property>
+	</bean> -->
+	
+	<!-- 构建sessionFactory工厂bean -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<!-- dbcp数据源来源 ;ref，其他工厂bean的id -->
+		<property name="dataSource" ref="dbcpDataSource"></property>
+		<!-- hibernate自身属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<!-- 正式运行时此属性需被注释 -->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<!-- sessionFactory.getCurrentSession配置文件 -->
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<!-- 开启二级缓存与查询缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<!-- hibernate的注解开发和javaee5存在不兼容的点，建议使用javaee6 ;此配置禁用javaee6的bean——validator 
+					<prop key="javax.persistence.validation.mode">none</prop> -->
+			</props>
+		</property>
+		<!-- 映射实体类信息注册 -->
+		<property name="annotatedClasses">
+			<list>
+				<value>com.flea.entity.FUser</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- <bean id = "test1" class="com.flea.test.DataBaseTest" autowire = "byName"></bean> -->
+	<bean id = "te" class = "com.flea.test.Test2" autowire = "byName"></bean>
+
+</beans>
