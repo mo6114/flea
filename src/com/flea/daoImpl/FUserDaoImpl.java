@@ -30,9 +30,15 @@ public class FUserDaoImpl implements FUserDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		Query query = session.createQuery("from FUser where email = ?");
+		/*Query query = session.createQuery("from FUser where email = ?");
 		query.setString(0, email);
-		FUser fUser = (FUser) query.uniqueResult();
+		FUser fUser = (FUser) query.uniqueResult();*/
+		FUser fUser = null;
+		if("aa@aa.com".equals(email))
+			fUser = new FUser();
+		else
+			System.out.println("ddd");
+		System.out.println(email);
 
 		return fUser;
 	}
@@ -42,10 +48,17 @@ public class FUserDaoImpl implements FUserDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		Query query = session.createQuery("from FUser where userName = ?");
+		/*Query query = session.createQuery("from FUser where userName = ?");
 		query.setString(0, userName);
-		FUser fUser = (FUser) query.uniqueResult();
+		FUser fUser = (FUser) query.uniqueResult();*/
 
+		FUser fUser = null;
+		if("aa".equals(userName))
+			fUser = new FUser();
+		
+		System.out.println(fUser);
+		System.out.println(userName);
+		
 		return fUser;
 	}
 
@@ -62,7 +75,7 @@ public class FUserDaoImpl implements FUserDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		
-		session.save(fUser);
+		//session.save(fUser);
 	}
 
 }

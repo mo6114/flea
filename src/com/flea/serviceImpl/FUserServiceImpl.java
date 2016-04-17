@@ -84,7 +84,7 @@ private SessionFactory sessionFactory;
 		
 		transaction.commit();
 		
-		return null;
+		return fUser;
 	}
 
 	@Override
