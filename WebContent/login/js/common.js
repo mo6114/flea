@@ -42,21 +42,6 @@ $(document).ready(function(){
 				required:true,
 				minlength:3,
 				maxlength:20,
-				remote:{
-					remote: {
-						url: "check-email.php",
-						type: "post",
-						dataType: "json",
-						data: {
-							username: function() {
-								return $("#username").val();
-							}
-						}
-					}
-				},
-				success:function(label){
-
-				}
 			},
 			password:{
 				required:true,
@@ -84,7 +69,6 @@ $(document).ready(function(){
 				required:"必须填写用户名",
 				minlength:"用户名至少为3个字符",
 				maxlength:"用户名至多为20个字符",
-				remote: "用户名已存在",
 			},
 			password:{
 				required:"必须填写密码",
@@ -93,7 +77,7 @@ $(document).ready(function(){
 			},
 			email:{
 				required:"请输入邮箱地址",
-				email: "请输入正确的email地址"
+				//email: "请输入正确的email地址"
 			},
 			confirm_password:{
 				required: "请再次输入密码",
@@ -114,7 +98,33 @@ $(document).ready(function(){
 		return this.optional(element) || (length == 11 && phone_number.test(value)); 
 	}, "手机号码格式错误");
 	jQuery.validator.addMethod("email", function(value, element) {
-		var email = /^[a-z]*([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i
+		var email = /^[a-z]*([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/
 		return this.optional(element)||email.test(value);
-	}, "手机号码格式错误");
+	}, "邮箱格式错误");
+	jQuery.validator.addMethod("userName", function(value, element) {
+		var right = XMLasynchronous('get','/flea/fUser/userNameIsExist',{userName:value},function(err,text){
+			var boolean;
+			if(err){
+				console.log(err);
+				return false;
+			}else{
+				boolean = (text==='true')? false:true
+				return boolean;
+			}
+		});
+		return this.optional(element)|| right;
+	}, "用户名已存在");
+	jQuery.validator.addMethod("email", function(value, element) {
+		var right = XMLasynchronous('get','/flea/fUser/emailIsExist',{email:value},function(err,text){
+			var boolean;
+			if(err){
+				console.log(err);
+				return false;
+			}else{
+				boolean = (text==='true')? false:true
+				return boolean;
+			}
+		});
+		return this.optional(element)||right;
+	}, "邮箱已存在");
 });

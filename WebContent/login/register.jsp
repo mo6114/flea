@@ -18,7 +18,10 @@
 	
 	<form action="" method="post" id="registerForm">
 		<div>
-			<input type="text" name="userName" class="username" placeholder="您的用户名" autocomplete="off"/>
+			<input type="text" name="userName" class="userName" placeholder="您的用户名" autocomplete="off"/>
+		</div>
+		<div>
+		<input type="email" name="email" class="email" placeholder="输入邮箱地址" oncontextmenu="return false" onpaste="return false" />
 		</div>
 		<div>
 			<input type="password" name="password" class="password" placeholder="输入密码" oncontextmenu="return false" onpaste="return false" />
@@ -29,9 +32,6 @@
 		<div>
 			<input type="text" name="phone_number" class="phone_number" placeholder="输入手机号码" autocomplete="off" id="number"/>
 		</div>
-		<div>
-			<input type="email" name="email" class="email" placeholder="输入邮箱地址" oncontextmenu="return false" onpaste="return false" />
-		</div>
 
 		<button id="submit" type="submit">注 册</button>
 	</form>
@@ -40,6 +40,7 @@
 	</a>
 
 </div>
+<script src="js/XMLasynchronous.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/common.js"></script>
 <!--背景图片自动更换-->
