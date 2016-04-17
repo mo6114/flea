@@ -12,20 +12,29 @@ import javax.persistence.Table;
 @Table(name = "fUser")
 public class FUser implements Serializable {
 
+	// 主键，email，用户指定
 	@Id
+	@Column
 	private String email;
+	// 用户名
 	@Column
 	private String userName;
+	// 用户密码
 	@Column
 	private String password;
+	// 注册时间
 	@Column
 	private Date registerTime;
+	// 用户状态（未激活：0，已激活：1）
 	@Column
 	private int status;
+	// 账户
 	@Column
 	private float account;
+	// 学校
 	@Column
 	private String school;
+	// 手机
 	@Column
 	private String mobile;
 

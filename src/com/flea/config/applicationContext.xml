@@ -10,27 +10,31 @@
 						http://www.springframework.org/schema/aop
 						http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
-	<context:property-placeholder location = "classpath:com/flea/config/config.properties"/>
+	<!-- <context:annotation-config></context:annotation-config> -->
+	<!-- <context:component-scan base-package="com"> <context:include-filter 
+		type="regex" expression="com.flea.dao.FUserDao"/> </context:component-scan> -->
+
+	<context:property-placeholder
+		location="classpath:com/flea/config/config.properties" />
 	<!-- dbcp数据源 -->
 	<bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${driverClassName}"></property>
 		<property name="url" value="${url}"></property>
 		<property name="password" value="${password}"></property>
 		<property name="username" value="${fUserName}"></property>
-		<!-- <property name="password" value="a942170996"></property>
-		<property name="username" value="testFlea"></property> -->
+		<!-- <property name="password" value="a942170996"></property> <property 
+			name="username" value="testFlea"></property> -->
 		<property name="maxActive" value="${maxActive}"></property>
 		<property name="minIdle" value="${minIdle}"></property>
 		<property name="maxWait" value="${maxWait}"></property>
 	</bean>
-	
-	<!-- <bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property>
-		<property name="password" value="a942170996"></property>
-		<property name="username" value="testFlea"></property>
-	</bean> -->
-	
+
+	<!-- <bean id="dbcpDataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property> 
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"></property> 
+		<property name="password" value="a942170996"></property> <property name="username" 
+		value="testFlea"></property> </bean> -->
+
 	<!-- 构建sessionFactory工厂bean -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
@@ -60,8 +64,13 @@
 			</list>
 		</property>
 	</bean>
-	
+
+	<bean id="fUserDaoImpl" class="com.flea.daoImpl.FUserDaoImpl"
+		autowire="byType"></bean>
+	<bean id="fUserServiceImpl" class="com.flea.serviceImpl.FUserServiceImpl"
+		autowire="byType"></bean>
+
 	<!-- <bean id = "test1" class="com.flea.test.DataBaseTest" autowire = "byName"></bean> -->
-	<bean id = "te" class = "com.flea.test.Test2" autowire = "byName"></bean>
+	<bean id="te" class="com.flea.test.Test2" autowire="byName"></bean>
 
 </beans>

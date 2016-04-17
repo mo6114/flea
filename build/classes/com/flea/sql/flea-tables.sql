@@ -26,13 +26,13 @@ create table fGoods (
 
 create table fOrder (
 	id varchar2(40) primary key ,
-	email varchar2(40) check(email like '%@%.com') references fUser(email) ,
+	bEmail varchar2(40) check(bEmail like '%@%.com') references fUser(email) ,
+	sEmail varchar2(40) check(sEmail like '%@%.com') references fUser(email) ,
 	goodsId varchar2(40) references fGoods(id) ,
 	amount number(3) default(1) not null ,
 	status number(1) default(1) check(status in(0,1,2)) not null ,
 	orderTime date not null ,
 	finishTime date ,
-	mobile char(11) not null ,
 	space char(100) not null ,
 	saleTime date not null
 );
@@ -49,3 +49,5 @@ create table fAuction (
 	startTime date not null ,
 	status number(1) default(1) check(status in(0,1,2)) not null 
 );
+
+drop table fOrder;
