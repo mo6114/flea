@@ -62,7 +62,7 @@ public class FUserDaoImpl implements FUserDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		
-		//session.save(fUser);
+		session.save(fUser);
 	}
 
 }
