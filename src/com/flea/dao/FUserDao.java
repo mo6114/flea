@@ -12,5 +12,5 @@ public interface FUserDao {
 	
 	public void updateFUser(FUser fUser);
 	
-	public void insertFuser(FUser fUser);
+	public void insertFUser(FUser fUser);
 }

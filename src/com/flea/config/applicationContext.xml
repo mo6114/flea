@@ -69,6 +69,9 @@
 		autowire="byType"></bean>
 	<bean id="fUserServiceImpl" class="com.flea.serviceImpl.FUserServiceImpl"
 		autowire="byType"></bean>
+	<bean id = "fUserAction" class = "com.flea.action.FUserAction" autowire="byName"></bean>
+	<bean id = "baseAction" class = "com.flea.action.BaseAction"></bean>
+	<bean id = "fUser" class = "com.flea.entity.FUser"></bean>
 
 	<!-- <bean id = "test1" class="com.flea.test.DataBaseTest" autowire = "byName"></bean> -->
 	<bean id="te" class="com.flea.test.Test2" autowire="byName"></bean>

@@ -58,10 +58,10 @@ public class FUserDaoImpl implements FUserDao {
 	}
 
 	@Override
-	public void insertFuser(FUser fUser) {
+	public void insertFUser(FUser fUser) {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-
+		
 		session.save(fUser);
 	}
 
