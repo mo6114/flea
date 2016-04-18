@@ -80,6 +80,7 @@ public class FUserAction extends BaseAction {
 		fUser.setPassword(password);
 		fUser.setMobile(mobile);
 		fUser.setSchool(school);
+		// System.out.println(fUser);
 		try {
 			// deleteSystem.out.println(fUser);
 			// 用户注册

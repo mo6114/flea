@@ -43,7 +43,7 @@ $(document).ready(function(){
 				minlength:2,
 				maxlength:20,
 				remote: {
-					url: "/${pageContext.request.contextPath}/fUser/userNameIsExist",
+					url: "/flea/fUser/userNameIsExist",
 					type: "get",
 					dataType: "json",
 					data: {
@@ -62,7 +62,7 @@ $(document).ready(function(){
 				required:true,
 				email:true,
 				remote: {
-					url: "/${pageContext.request.contextPath}/fUser/emailIsExist",     //后台处理程序
+					url: "/flea/fUser/emailIsExist",     //后台处理程序
 					type: "get",               //数据发送方式
 					dataType: "json",           //接受数据格式
 					data: {                     //要传递的数据

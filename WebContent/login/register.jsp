@@ -31,10 +31,10 @@
 			<input type="password" name="confirm_password" class="confirm_password" placeholder="再次输入密码" oncontextmenu="return false" onpaste="return false" />
 		</div>
 		<div>
-			<input type="text" name="phone_number" class="phone_number" placeholder="输入手机号码" autocomplete="off" id="number"/>
+			<input type="text" name="mobile" class="phone_number" placeholder="输入手机号码" autocomplete="off" id="number"/>
 		</div>
 		<div>
-			<select id="province"></select><select id="school"></select>
+			<select id="province"></select><select id="school" name = "school"></select>
 		</div>
 		<button id="submit" type="submit">注 册</button>
 	</form>
