@@ -40,8 +40,18 @@ $(document).ready(function(){
 		rules:{
 			userName:{
 				required:true,
-				minlength:3,
+				minlength:2,
 				maxlength:20,
+				remote: {
+					url: "/${pageContext.request.contextPath}/fUser/userNameIsExist",
+					type: "get",
+					dataType: "json",
+					data: {
+						userName: function() {
+							return $(".userName").val();
+						}
+					}
+				}
 			},
 			password:{
 				required:true,
@@ -51,6 +61,16 @@ $(document).ready(function(){
 			email:{
 				required:true,
 				email:true,
+				remote: {
+					url: "/${pageContext.request.contextPath}/fUser/emailIsExist",     //后台处理程序
+					type: "get",               //数据发送方式
+					dataType: "json",           //接受数据格式
+					data: {                     //要传递的数据
+						email: function() {
+							return $(".email").val();
+						}
+					}
+				}
 			},
 			confirm_password:{
 				required:true,
@@ -67,8 +87,9 @@ $(document).ready(function(){
 		messages:{
 			userName:{
 				required:"必须填写用户名",
-				minlength:"用户名至少为3个字符",
+				minlength:"用户名至少为2个字符",
 				maxlength:"用户名至多为20个字符",
+				remote:"用户名已存在"
 			},
 			password:{
 				required:"必须填写密码",
@@ -77,7 +98,8 @@ $(document).ready(function(){
 			},
 			email:{
 				required:"请输入邮箱地址",
-				//email: "请输入正确的email地址"
+				email: "请输入正确的email地址",
+				remote:"邮箱已存在"
 			},
 			confirm_password:{
 				required: "请再次输入密码",
@@ -91,6 +113,13 @@ $(document).ready(function(){
 		
 		},
 	});
+	//取消keyup事件
+	$(".userName").validate({
+		onkeyup:false
+	})
+	$(".email").validate({
+		onkeyup:false
+	})
 	//添加自定义验证规则
 	jQuery.validator.addMethod("phone_number", function(value, element) {
 		var length = value.length; 
@@ -101,30 +130,4 @@ $(document).ready(function(){
 		var email = /^[a-z]*([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/
 		return this.optional(element)||email.test(value);
 	}, "邮箱格式错误");
-	jQuery.validator.addMethod("userName", function(value, element) {
-		var right = XMLasynchronous('get','/flea/fUser/userNameIsExist',{userName:value},function(err,text){
-			var boolean;
-			if(err){
-				console.log(err);
-				return false;
-			}else{
-				boolean = (text==='true')? false:true
-				return boolean;
-			}
-		});
-		return this.optional(element)|| right;
-	}, "用户名已存在");
-	jQuery.validator.addMethod("email", function(value, element) {
-		var right = XMLasynchronous('get','/flea/fUser/emailIsExist',{email:value},function(err,text){
-			var boolean;
-			if(err){
-				console.log(err);
-				return false;
-			}else{
-				boolean = (text==='true')? false:true
-				return boolean;
-			}
-		});
-		return this.optional(element)||right;
-	}, "邮箱已存在");
 });

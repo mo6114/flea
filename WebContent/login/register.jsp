@@ -1,6 +1,7 @@
 <%@page contentType = "text/html;charset=UTF-8"%>
 <%@page pageEncoding = "UTF-8"%>
 <%@taglib uri = "/struts-tags" prefix = "s" %>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,7 +17,7 @@
 		<p>请注册一个账户</p>
 	</div>
 	
-	<form action="" method="post" id="registerForm">
+	<form action="${pageContext.request.contextPath}/fUser/register" method="post" id="registerForm">
 		<div>
 			<input type="text" name="userName" class="userName" placeholder="您的用户名" autocomplete="off"/>
 		</div>
@@ -32,7 +33,9 @@
 		<div>
 			<input type="text" name="phone_number" class="phone_number" placeholder="输入手机号码" autocomplete="off" id="number"/>
 		</div>
-
+		<div>
+			<select id="province"></select><select id="school"></select>
+		</div>
 		<button id="submit" type="submit">注 册</button>
 	</form>
 	<a href="index.jsp">
@@ -40,7 +43,6 @@
 	</a>
 
 </div>
-<script src="js/XMLasynchronous.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/common.js"></script>
 <!--背景图片自动更换-->
@@ -48,7 +50,7 @@
 <script src="js/supersized-init.js"></script>
 <!--表单验证-->
 <script src="js/jquery.validate.min.js"></script>
-
-
+<!--学校选择-->
+<script src="js/selecter.js"></script>
 </body>
 </html>
