@@ -32,6 +32,6 @@ public class FUserDaoImplTest {
 		
 		FUserServiceImpl fUserService = applicationContext.getBean(FUserServiceImpl.class);
 		
-		System.out.println(fUserService.test());
+		//System.out.println(fUserService.test());
 	}
 }

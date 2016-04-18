@@ -102,7 +102,7 @@ $(document).ready(function(){
 		return this.optional(element)||email.test(value);
 	}, "邮箱格式错误");
 	jQuery.validator.addMethod("userName", function(value, element) {
-		var right = XMLasynchronous('get','/flea/fUser/userNameIsExist',{userName:value},function(err,text){
+		var right = XMLasynchronous('get','/${pageContext.request.contextPath}/fUser/userNameIsExist',{userName:value},function(err,text){
 			var boolean;
 			if(err){
 				console.log(err);
@@ -115,7 +115,7 @@ $(document).ready(function(){
 		return this.optional(element)|| right;
 	}, "用户名已存在");
 	jQuery.validator.addMethod("email", function(value, element) {
-		var right = XMLasynchronous('get','/flea/fUser/emailIsExist',{email:value},function(err,text){
+		var right = XMLasynchronous('get','/${pageContext.request.contextPath}/fUser/emailIsExist',{email:value},function(err,text){
 			var boolean;
 			if(err){
 				console.log(err);

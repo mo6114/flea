@@ -7,7 +7,7 @@ import com.flea.service.FUserService;
 import com.flea.serviceImpl.FUserServiceImpl;
 
 public class FUserAction extends BaseAction {
-	
+
 	private String email;
 	private String userName;
 	private String password;
@@ -15,7 +15,7 @@ public class FUserAction extends BaseAction {
 	private String school;
 	private FUser fUser;
 	private FUserService fUserServiceImpl;
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -71,49 +71,56 @@ public class FUserAction extends BaseAction {
 	public void setfUser(FUser fUser) {
 		this.fUser = fUser;
 	}
-	
+
+	// 用户注册
 	public String register() {
+		// 将邮箱、用户名、密码、手机号、学校注入到FUser对象
 		fUser.setEmail(email);
 		fUser.setUserName(userName);
 		fUser.setPassword(password);
 		fUser.setMobile(mobile);
 		fUser.setSchool(school);
 		try {
-			System.out.println(fUser);
+			// deleteSystem.out.println(fUser);
+			// 用户注册
 			fUserServiceImpl.register(fUser);
 		} catch (Exception e) {
-			if("error".equals(e.getMessage()))
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
 				return "error";
 		}
-		System.out.println("1234");
+		// deleteSystem.out.println("1234");
 		return "success";
 	}
-	
+
+	// 判断邮箱是否存在
 	public void emailIsExist() {
 		try {
+			// 获取PrintWriter对戏那个
 			PrintWriter printWriter = getPrintWriter();
-			
-			if(fUserServiceImpl.queryFUserByEmail(email) == null)
+			// 通过邮箱查询，看是否有FUser对象返回
+			if (fUserServiceImpl.queryFUserByEmail(email) == null)
 				printWriter.print("true");
 			else
 				printWriter.println("false");
-			
+
 			printWriter.flush();
 			printWriter.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void userNameIsExist() {
 		try {
+			// 获取PrintWriter对戏那个
 			PrintWriter printWriter = getPrintWriter();
-
-			if(fUserServiceImpl.queryFUserByUserName(userName) == null)
+			// 通过用户名查询，看是否有FUser对象返回
+			if (fUserServiceImpl.queryFUserByUserName(userName) == null)
 				printWriter.print("true");
 			else
 				printWriter.println("false");
-			
+
 			printWriter.flush();
 			printWriter.close();
 		} catch (Exception e) {
