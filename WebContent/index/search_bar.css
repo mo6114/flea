@@ -1,0 +1,30 @@
+#search_bar .logo{
+    float: left;
+    width:200px;
+    height:100%;
+    text-align: left;
+    font-size: 20px;
+    margin-left:37px;
+}
+#search_bar .search_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    line-height: normal;
+}
+#search_bar .search_box::after{
+    content: '';
+    width: 0;
+    height:0;
+    display: block;
+    clear: both;
+}
+#search_bar .search_box input{
+    height:33px;
+    width:300px;
+    float: left;
+}
+#search_bar .search_box .input-group-btn{
+    float: left;
+}
