@@ -26,3 +26,4 @@ graduation-project<br>
 注册：${pageContext.request.contextPath}/fUser/register<br>
 登陆：${pageContext.request.contextPath}/fUser/login<br>
 退出：${pageContext.request.contextPath}/fUser/quit<br>
+上架新商品：${pageContext.request.contextPath}/fGoods/onShelves(Test/shelves.jsp为示例)

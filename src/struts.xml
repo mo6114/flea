@@ -11,4 +11,10 @@
 		<action name="emailIsExist" class = "fUserAction" method = "emailIsExist"></action>
 		<action name="userNameIsExist" class = "fUserAction" method = "userNameIsExist"></action>
 	</package>
+	
+	<package name="fGoods" extends = "struts-default" namespace = "/fGoods">
+		<action name="onShelves" class = "fGoodsAction" method = "onShelves">
+			<result name = "success" type = "redirect">/Test/test.jsp</result>
+		</action>
+	</package>
 </struts>

@@ -65,13 +65,25 @@
 		</property>
 	</bean>
 
+	<!-- 只有User的dao和service的beanId需加impl -->
 	<bean id="fUserDaoImpl" class="com.flea.daoImpl.FUserDaoImpl"
 		autowire="byType"></bean>
 	<bean id="fUserServiceImpl" class="com.flea.serviceImpl.FUserServiceImpl"
 		autowire="byType"></bean>
-	<bean id = "fUserAction" class = "com.flea.action.FUserAction" autowire="byName"></bean>
-	<bean id = "baseAction" class = "com.flea.action.BaseAction"></bean>
-	<bean id = "fUser" class = "com.flea.entity.FUser"></bean>
+	<bean id="fGoodsDao" class="com.flea.daoImpl.FGoodsDaoImpl"
+		autowire="byName"></bean>
+	<bean id="fGoodsService" class="com.flea.serviceImpl.FGoodsServiceImpl"
+		autowire="byName"></bean>
+
+	<bean id="fUserAction" class="com.flea.action.FUserAction"
+		autowire="byName"></bean>
+	<bean id="fGoodsAction" class="com.flea.action.FGoodsAction"
+		autowire="byName"></bean>
+
+	<bean id="baseAction" class="com.flea.action.BaseAction"></bean>
+	<bean id="fUser" class="com.flea.entity.FUser"></bean>
+	<bean id="fGoods" class="com.flea.entity.FGoods"></bean>
+
 
 	<!-- <bean id = "test1" class="com.flea.test.DataBaseTest" autowire = "byName"></bean> -->
 	<bean id="te" class="com.flea.test.Test2" autowire="byName"></bean>

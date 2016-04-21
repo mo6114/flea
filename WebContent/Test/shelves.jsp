@@ -9,9 +9,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method = "post" enctype="multipart/form-data">
-		<input type = "file" name = "picture">
-		<input type = "text" name = "name">
+	<form action="${pageContext.request.contextPath}/fGoods/onShelves" method = "post" enctype="multipart/form-data">
+		图片：<input type = "file" name = "picture">
+		名称：<input type = "text" name = "name">
+		一级：<input type = "text" name = "one_level">
+		二级：<input type = "text" name = "two_level">
+		简介：<input type = "text" name = "introduction">
+		价格：<input type = "text" name = "price">
+		数量：<input type = "text" name = "amount">
 		<input type = "submit">
 	</form>
 </body>

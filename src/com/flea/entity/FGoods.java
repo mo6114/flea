@@ -38,7 +38,7 @@ public class FGoods implements Serializable {
 	private String one_level;
 	// 商品二级类别
 	@Column
-	private String twe_level;
+	private String two_level;
 	// 商品图片名称（实际图片存在本地指定位置，非数据库）
 	@Column
 	private String picture;
@@ -93,12 +93,12 @@ public class FGoods implements Serializable {
 		this.one_level = one_level;
 	}
 
-	public String getTwe_level() {
-		return twe_level;
+	public String getTwo_level() {
+		return two_level;
 	}
 
-	public void setTwe_level(String twe_level) {
-		this.twe_level = twe_level;
+	public void setTwo_level(String two_level) {
+		this.two_level = two_level;
 	}
 
 	public String getPicture() {
@@ -160,7 +160,7 @@ public class FGoods implements Serializable {
 	@Override
 	public String toString() {
 		return "FGoods [id=" + id + ", email=" + email + ", name=" + name + ", one_level=" + one_level + ", twe_level="
-				+ twe_level + ", picture=" + picture + ", introduction=" + introduction + ", timeOnShelves="
+				+ two_level + ", picture=" + picture + ", introduction=" + introduction + ", timeOnShelves="
 				+ timeOnShelves + ", status=" + status + ", amount=" + amount + ", price=" + price + ", times=" + times
 				+ "]";
 	}
@@ -180,7 +180,7 @@ public class FGoods implements Serializable {
 		result = prime * result + status;
 		result = prime * result + ((timeOnShelves == null) ? 0 : timeOnShelves.hashCode());
 		result = prime * result + times;
-		result = prime * result + ((twe_level == null) ? 0 : twe_level.hashCode());
+		result = prime * result + ((two_level == null) ? 0 : two_level.hashCode());
 		return result;
 	}
 
@@ -236,10 +236,10 @@ public class FGoods implements Serializable {
 			return false;
 		if (times != other.times)
 			return false;
-		if (twe_level == null) {
-			if (other.twe_level != null)
+		if (two_level == null) {
+			if (other.two_level != null)
 				return false;
-		} else if (!twe_level.equals(other.twe_level))
+		} else if (!two_level.equals(other.two_level))
 			return false;
 		return true;
 	}
