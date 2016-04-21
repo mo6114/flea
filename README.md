@@ -19,8 +19,9 @@ graduation-project<br>
 密码——password<br>
 <br>
 登陆、退出注意事项<br>
-登陆、退出成功时返回字符串“true”
-登陆失败时返回字符串“false”
+登陆、退出成功时返回字符串“true”<br>
+登陆失败时返回字符串“false”<br>
+<br>
 表单提交地址<br>
 注册：${pageContext.request.contextPath}/fUser/register<br>
 登陆：${pageContext.request.contextPath}/fUser/login<br>
