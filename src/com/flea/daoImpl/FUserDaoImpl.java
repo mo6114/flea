@@ -79,7 +79,7 @@ public class FUserDaoImpl implements FUserDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		System.out.println(fUser);
+		//System.out.println(fUser);
 		// 插入
 		session.save(fUser);
 	}

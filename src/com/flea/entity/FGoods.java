@@ -9,18 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "fGoods")
-/*
- * 缓存
- * 
- * @Cache
- */
 public class FGoods implements Serializable {
-
 	// 主键
 	@Id
 	@GenericGenerator(name = "gg", strategy = "uuid")
@@ -38,7 +31,7 @@ public class FGoods implements Serializable {
 	private String one_level;
 	// 商品二级类别
 	@Column
-	private String twe_level;
+	private String two_level;
 	// 商品图片名称（实际图片存在本地指定位置，非数据库）
 	@Column
 	private String picture;
@@ -93,12 +86,12 @@ public class FGoods implements Serializable {
 		this.one_level = one_level;
 	}
 
-	public String getTwe_level() {
-		return twe_level;
+	public String getTwo_level() {
+		return two_level;
 	}
 
-	public void setTwe_level(String twe_level) {
-		this.twe_level = twe_level;
+	public void setTwo_level(String two_level) {
+		this.two_level = two_level;
 	}
 
 	public String getPicture() {
@@ -160,7 +153,7 @@ public class FGoods implements Serializable {
 	@Override
 	public String toString() {
 		return "FGoods [id=" + id + ", email=" + email + ", name=" + name + ", one_level=" + one_level + ", twe_level="
-				+ twe_level + ", picture=" + picture + ", introduction=" + introduction + ", timeOnShelves="
+				+ two_level + ", picture=" + picture + ", introduction=" + introduction + ", timeOnShelves="
 				+ timeOnShelves + ", status=" + status + ", amount=" + amount + ", price=" + price + ", times=" + times
 				+ "]";
 	}
@@ -180,7 +173,7 @@ public class FGoods implements Serializable {
 		result = prime * result + status;
 		result = prime * result + ((timeOnShelves == null) ? 0 : timeOnShelves.hashCode());
 		result = prime * result + times;
-		result = prime * result + ((twe_level == null) ? 0 : twe_level.hashCode());
+		result = prime * result + ((two_level == null) ? 0 : two_level.hashCode());
 		return result;
 	}
 
@@ -236,20 +229,11 @@ public class FGoods implements Serializable {
 			return false;
 		if (times != other.times)
 			return false;
-		if (twe_level == null) {
-			if (other.twe_level != null)
+		if (two_level == null) {
+			if (other.two_level != null)
 				return false;
-		} else if (!twe_level.equals(other.twe_level))
+		} else if (!two_level.equals(other.two_level))
 			return false;
 		return true;
 	}
 }
-/*
- * id varchar2(40) primary key , email varchar2(40) check(email like '%@%.com')
- * references fUser(email) , name varchar2(40) not null , one_level varchar2(20)
- * not null , two_level varchar2(20) not null , picture varchar2(40) not null ,
- * introduction varchar2(200) , timeOnShelves date not null , status number(1)
- * default(1) check(status in(0,1)) not null , amount number(3) default(1) not
- * null , price number(8,2) default(0.01) not null , times number(4) default(0)
- * not null
- */

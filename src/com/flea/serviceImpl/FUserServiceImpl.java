@@ -113,4 +113,41 @@ public class FUserServiceImpl implements FUserService {
 
 		return fUser;
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.flea.service.FUserService#login(java.lang.String,
+	 * java.lang.String) 用户登陆
+	 */
+	@Override
+	public FUser login(String userName, String password) {
+		// 获取Session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+		FUser fUser = null;
+
+		try {
+			// 判断userName是否是邮箱，根据判断情况查询FUser
+			if (userName.indexOf('@') > 0)
+				fUser = fUserDao.queryFUserByEmail(userName);
+			else
+				fUser = fUserDao.queryFUserByUserName(userName);
+
+			transaction.commit();
+			// 如果fUser是空的，直接返回空；否则，若查询到的密码有password加密后密码相同，返回fUser，反之，返回null
+			if (fUser == null)
+				return fUser;
+			else {
+				if (fUser.getPassword().equals(MD5Utils.generateMD5Code(password)))
+					return fUser;
+				else
+					return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("error");
+		}
+	}
 }

@@ -2,11 +2,19 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd" >
 <struts>
 	<package name="fUser" extends = "struts-default" namespace = "/fUser">
-		<action name="register" class = "com.flea.action.FUserAction" method = "register">
+		<action name="register" class = "fUserAction" method = "register">
 			<result name = "success" type = "redirect">/Test/test.jsp</result>
 			<result name = "error" type = "redirect">/Test/test1.jsp</result>
 		</action>
-		<action name="emailIsExist" class = "com.flea.action.FUserAction" method = "emailIsExist"></action>
-		<action name="userNameIsExist" class = "com.flea.action.FUserAction" method = "userNameIsExist"></action>
+		<action name="login" class = "fUserAction" method = "login"></action>
+		<action name="quti" class = "fUserAction" method = "quit"></action>
+		<action name="emailIsExist" class = "fUserAction" method = "emailIsExist"></action>
+		<action name="userNameIsExist" class = "fUserAction" method = "userNameIsExist"></action>
+	</package>
+	
+	<package name="fGoods" extends = "struts-default" namespace = "/fGoods">
+		<action name="onShelves" class = "fGoodsAction" method = "onShelves">
+			<result name = "success" type = "redirect">/Test/test.jsp</result>
+		</action>
 	</package>
 </struts>

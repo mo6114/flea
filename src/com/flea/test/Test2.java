@@ -5,8 +5,10 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.Test;
 
 import com.flea.entity.FUser;
+import com.flea.util.CategoryUtil;
 
 public class Test2 {
 
@@ -30,5 +32,15 @@ public class Test2 {
 			System.out.println(fUser);
 		
 		session.close();
+	}
+	
+	@Test
+	public void test() {
+		System.out.println("ss123.com".indexOf('@'));
+	}
+	
+	@Test
+	public void cetegoryUtilTest() {
+		System.out.println(CategoryUtil.getCategory(2));
 	}
 }
