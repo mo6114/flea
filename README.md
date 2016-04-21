@@ -5,6 +5,11 @@ graduation-project<br>
 账号：mo6114 <br>
 密码：a942170996<br>
 <br>
+商品类别<br>
+图书：小说、杂志、学习资料<br>
+服装：上装、下装、整套服装、鞋子<br>
+电子产品：手机、笔记本电脑、平板电脑、外设<br>
+其他：其他<br>
 上架：规格（中文名——表单名）（表单项顺序未定，先看着弄，有遗忘项请提醒）<br>
 名称——name<br>
 一级类别——one_level<br>
@@ -26,4 +31,7 @@ graduation-project<br>
 注册：${pageContext.request.contextPath}/fUser/register<br>
 登陆：${pageContext.request.contextPath}/fUser/login<br>
 退出：${pageContext.request.contextPath}/fUser/quit<br>
-上架新商品：${pageContext.request.contextPath}/fGoods/onShelves(Test/shelves.jsp为示例)
+上架新商品：${pageContext.request.contextPath}/fGoods/onShelves(Test/shelves.jsp为示例)<br>
+验证用户名是否存在：/flea/fUser/userNameIsExist<br>
+验证邮箱是否存在：/flea/fUser/emailIsExist<br>
+<br>
