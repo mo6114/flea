@@ -94,6 +94,40 @@ public class FUserAction extends BaseAction {
 		return "success";
 	}
 
+	// 用户登陆
+	public void login() {
+		try {
+			fUser = fUserServiceImpl.login(userName, password);
+		} catch (Exception e) {
+			// 出现异常且为“error”时跳转到相应页面
+			/*if ("error".equals(e.getMessage()))
+				return "error";*/
+		}
+		PrintWriter printWriter = getPrintWriter();
+		if (fUser == null) {
+			// 失败时告知前台信息
+			printWriter.print("false");
+			printWriter.flush();
+		} else {
+			// 失败时告知前台信息
+			printWriter.print("true");
+			printWriter.flush();
+			// 将登陆标志存入session
+			this.setValue("#session.email", fUser.getEmail());
+			this.setValue("#session.userName", fUser.getUserName());
+		}
+	}
+	
+	// 用户退出
+	public void quit() {
+		this.removeSession("email");
+		this.removeSession("userName");
+		
+		PrintWriter printWriter = getPrintWriter();
+		printWriter.print("true");
+		printWriter.flush();
+	}
+
 	// 判断邮箱是否存在
 	public void emailIsExist() {
 		try {
@@ -112,6 +146,7 @@ public class FUserAction extends BaseAction {
 		}
 	}
 
+	// 判断用户名是否存在
 	public void userNameIsExist() {
 		try {
 			// 获取PrintWriter对戏那个

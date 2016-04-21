@@ -13,3 +13,15 @@ graduation-project<br>
 简介——introduction<br>
 价格——price<br>
 数量——amount（默认1）<br>
+<br>
+登陆规格<br>
+用户名——userName（允许是用户名或邮箱）<br>
+密码——password<br>
+<br>
+登陆、退出注意事项<br>
+登陆、退出成功时返回字符串“true”
+登陆失败时返回字符串“false”
+表单提交地址<br>
+注册：${pageContext.request.contextPath}/fUser/register<br>
+登陆：${pageContext.request.contextPath}/fUser/login<br>
+退出：${pageContext.request.contextPath}/fUser/quit<br>

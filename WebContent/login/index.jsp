@@ -20,7 +20,7 @@
 		<p>欢迎来到登录页面</p>
 	</div>
 	
-	<form action="" method="post" id="loginForm">
+	<form action="${pageContext.request.contextPath}/fUser/login" method="post" id="loginForm">
 		<div>
 			<input type="text" name="userName" class="username" placeholder="用户名" autocomplete="off"/>
 		</div>

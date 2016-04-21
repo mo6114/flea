@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.junit.Test;
 
 import com.flea.entity.FUser;
 
@@ -30,5 +31,10 @@ public class Test2 {
 			System.out.println(fUser);
 		
 		session.close();
+	}
+	
+	@Test
+	public void test() {
+		System.out.println("ss123.com".indexOf('@'));
 	}
 }
