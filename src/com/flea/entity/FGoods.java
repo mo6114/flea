@@ -9,18 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "fGoods")
-/*
- * 缓存
- * 
- * @Cache
- */
 public class FGoods implements Serializable {
-
 	// 主键
 	@Id
 	@GenericGenerator(name = "gg", strategy = "uuid")
@@ -244,12 +237,3 @@ public class FGoods implements Serializable {
 		return true;
 	}
 }
-/*
- * id varchar2(40) primary key , email varchar2(40) check(email like '%@%.com')
- * references fUser(email) , name varchar2(40) not null , one_level varchar2(20)
- * not null , two_level varchar2(20) not null , picture varchar2(40) not null ,
- * introduction varchar2(200) , timeOnShelves date not null , status number(1)
- * default(1) check(status in(0,1)) not null , amount number(3) default(1) not
- * null , price number(8,2) default(0.01) not null , times number(4) default(0)
- * not null
- */

@@ -61,6 +61,8 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.flea.entity.FUser</value>
+				<value>com.flea.entity.FGoods</value>
+				<value>com.flea.entity.FOrder</value>
 			</list>
 		</property>
 	</bean>
