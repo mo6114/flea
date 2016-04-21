@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+/*整体布局*/
+#huge_wraper{
+    font-size: 12px;
+    color:#666;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+#top_bar{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height:37px;
+    line-height: 37px;
+    background-color: white;
+}
+#search_bar{
+    position: relative;
+    margin-top: 37px;
+    height:90px;
+    line-height: 90px;
+    background-color: #4f9fcf;
+}
+#nav_bar{
+    height:50px;
+}

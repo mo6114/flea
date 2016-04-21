@@ -1,5 +1,5 @@
 create table fUser (
-	email varchar2(40) check(email like '%@%.com') primary key ,
+	email varchar2(40) check(email like '%@%.%') primary key ,
 	userName varchar2(20) unique not null ,
 	password varchar2(32) not null ,
 	registerTime date not null ,

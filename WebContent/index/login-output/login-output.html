@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://localhost:63342/GitHub/login-output/login-output.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>登录弹出框组件</title>
+    <link rel="stylesheet" href="css/login-output.css">
+    <link rel="stylesheet" href="css/select.css">
+</style></head>
+<body style="overflow: hidden;">
+<div id="glo-login-cover">
+    <div id="glo-login-wraper">
+        <div class="cont_tabs_login">
+            <ul class='ul_tabs'>
+                <li class="active"><a class="signin-btn">登录</a>
+                    <span class="linea_bajo_nom"></span>
+                </li>
+                <li>
+                    <a class="signup-btn">注册</a>
+                    <span class="linea_bajo_nom"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="login-form-area">
+            <div class="line">
+                <input type="text" class="username" name="username" placeholder="用户名"><br>
+            </div>
+            <div class="line">
+                <input type="password" class="password" name="password" placeholder="密码"><br>
+            </div>
+            <button class="submit" type="submit">登录</button>
+        </div>
+        <div class="signup-form-area" id="signup-form-area">
+            <div class="line">
+                <input type="text" class="username" name="username" placeholder="用户名"><br>
+                <label class="username-tip"></label>
+            </div>
+            <div class="line">
+                <input type="text" class="email" name="email" placeholder="邮箱"><br>
+                <label class="email-tip"></label>
+            </div>
+            <div class="line">
+                <input type="password" class="password" name="password" placeholder="密码"><br>
+                <label class="password-tip"></label>
+            </div>
+            <div class="line">
+                <input type="password" class="confirm_password" placeholder="再次输入密码"><br>
+                <label class="confirm_password-tip"></label>
+            </div>
+            <div class="line">
+                <input type="text" class="phone" name="phone" placeholder="手机号码"><br>
+                <label class="phone-tip"></label>
+            </div>
+            <div id="glo-select">
+                <div class="wraper">
+                    <ul class="select-list fold">
+                    </ul>
+                    <ul class="select-list school fold"></ul>
+                </div>
+            </div>
+            <button class="submit" type="submit">注册</button>
+        </div>
+    </div>
+</div>
+<script src="js/glo-validate.js"></script>
+<script src="jquery/dist/jquery.min.js"></script>
+<script src="js/login-output.js"></script>
+<script src="js/glo-select.js"></script>
+
+</body>
+</html>
