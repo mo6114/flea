@@ -66,11 +66,11 @@
     <div id="glo-login-wraper">
         <div class="cont_tabs_login">
             <ul class='ul_tabs'>
-                <li class="active"><a class="signin-btn">登录</a>
+                <li class="active"><a class="signin-btn sign-btn" data-typ="signin">登录</a>
                     <span class="linea_bajo_nom"></span>
                 </li>
                 <li>
-                    <a class="signup-btn">注册</a>
+                    <a class="signup-btn sign-btn" data-typ="signup">注册</a>
                     <span class="linea_bajo_nom"></span>
                 </li>
             </ul>
