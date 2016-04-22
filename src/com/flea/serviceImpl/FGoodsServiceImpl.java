@@ -46,6 +46,10 @@ public class FGoodsServiceImpl implements FGoodsService {
 			fGoods.setTimeOnShelves(new Date());
 			fGoods.setStatus(1);
 			fGoods.setTimes(0);
+			System.out.println(fGoods);
+			fGoods.setOne_level(CategoryUtil.getCategory(Integer.parseInt(fGoods.getOne_level())));
+			fGoods.setTwo_level(CategoryUtil.getCategory(Integer.parseInt(fGoods.getTwo_level())));
+			System.out.println(fGoods);
 			fGoodsDao.insertFGoods(fGoods);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -7,7 +7,7 @@
 			<result name = "error" type = "redirect">/Test/test1.jsp</result>
 		</action>
 		<action name="login" class = "fUserAction" method = "login"></action>
-		<action name="quti" class = "fUserAction" method = "quit"></action>
+		<action name="quit" class = "fUserAction" method = "quit"></action>
 		<action name="emailIsExist" class = "fUserAction" method = "emailIsExist"></action>
 		<action name="userNameIsExist" class = "fUserAction" method = "userNameIsExist"></action>
 	</package>
@@ -15,6 +15,9 @@
 	<package name="fGoods" extends = "struts-default" namespace = "/fGoods">
 		<action name="onShelves" class = "fGoodsAction" method = "onShelves">
 			<result name = "success" type = "redirect">/Test/test.jsp</result>
+		</action>
+		<action name="showTest" class = "fGoodsAction" method = "showTest">
+			<result name = "success" type = "redirect">/Test/showTest.jsp</result>
 		</action>
 	</package>
 </struts>

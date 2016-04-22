@@ -1,6 +1,8 @@
 package com.flea.action;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -127,6 +129,20 @@ public class FGoodsAction extends BaseAction {
 			if ("error".equals(e.getMessage()))
 				return "error";
 		}
+		return "success";
+	}
+	
+	//showTest
+	public String showTest() {
+		List<String> list = new ArrayList<String>();
+		list.add("a");
+		list.add("b");
+		list.add("c");
+		list.add("d");
+		list.add("e");
+		list.add("f");
+		list.add("g");
+		this.setValue("#session.list", list);
 		return "success";
 	}
 }
