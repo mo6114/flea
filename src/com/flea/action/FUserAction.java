@@ -73,25 +73,29 @@ public class FUserAction extends BaseAction {
 	}
 
 	// 用户注册
-	public String register() {
+	public void register() {
 		// 将邮箱、用户名、密码、手机号、学校注入到FUser对象
 		fUser.setEmail(email);
 		fUser.setUserName(userName);
 		fUser.setPassword(password);
 		fUser.setMobile(mobile);
 		fUser.setSchool(school);
-		// System.out.println(fUser);
+		System.out.println(fUser);
+		PrintWriter printWriter = getPrintWriter();
 		try {
 			// deleteSystem.out.println(fUser);
 			// 用户注册
 			fUserServiceImpl.register(fUser);
+			printWriter.print("true");
+			printWriter.flush();
 		} catch (Exception e) {
+			e.printStackTrace();
 			// 出现异常且为“error”时跳转到相应页面
-			if ("error".equals(e.getMessage()))
-				return "error";
+			if ("error".equals(e.getMessage())) {
+				printWriter.print("false");
+				printWriter.flush();
+			}
 		}
-		// deleteSystem.out.println("1234");
-		return "success";
 	}
 
 	// 用户登陆
@@ -100,8 +104,9 @@ public class FUserAction extends BaseAction {
 			fUser = fUserServiceImpl.login(userName, password);
 		} catch (Exception e) {
 			// 出现异常且为“error”时跳转到相应页面
-			/*if ("error".equals(e.getMessage()))
-				return "error";*/
+			/*
+			 * if ("error".equals(e.getMessage())) return "error";
+			 */
 		}
 		PrintWriter printWriter = getPrintWriter();
 		if (fUser == null) {
@@ -117,12 +122,12 @@ public class FUserAction extends BaseAction {
 			this.setValue("#session.userName", fUser.getUserName());
 		}
 	}
-	
+
 	// 用户退出
 	public void quit() {
 		this.removeSession("email");
 		this.removeSession("userName");
-		
+
 		PrintWriter printWriter = getPrintWriter();
 		printWriter.print("true");
 		printWriter.flush();

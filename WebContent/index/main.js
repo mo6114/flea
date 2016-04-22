@@ -38,7 +38,7 @@
             data.province = oProvince;
             data.school = oSchool;
             console.log(oSelect);
-            XMLasynchronous('post','${pageContext.request.contextPath}/fUser/register',data,true,function(err,res){
+            XMLasynchronous('post','/flea/fUser/register',data,true,function(err,res){
                 if(err){
                 }else{
                     alert(res);

@@ -3,7 +3,6 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <%@page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -102,7 +101,7 @@
                 <label class="tip confirm_password-tip"></label>
             </div>
             <div class="line">
-                <input type="text" class="phone" name="phone" placeholder="手机号码"><br>
+                <input type="text" class="phone" name="mobile" placeholder="手机号码"><br>
                 <label class="tip phone-tip"></label>
             </div>
             <div id="glo-select">
