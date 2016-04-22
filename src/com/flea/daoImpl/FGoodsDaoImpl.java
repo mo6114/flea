@@ -36,14 +36,15 @@ public class FGoodsDaoImpl implements FGoodsDao {
 
 	// 通过service层的HQL语句查询
 	@Override
-	public List<FGoods> queryByHQL(String hql, String... strings) {
+	public List<FGoods> queryByHQL(String hql, int pageNum, int pageSize, String... strings) {
 		// 获取session并开启事务
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
 		hql = "from FGoods " + hql;
-		System.out.println(hql);
 		Query query = session.createQuery(hql);
+		query.setFirstResult((pageNum - 1) * pageSize);
+		query.setMaxResults(pageSize);
 		if (strings != null) {
 			int i = 0;
 			for (String string : strings) {
@@ -52,5 +53,14 @@ public class FGoodsDaoImpl implements FGoodsDao {
 			}
 		}
 		return query.list();
+	}
+
+	@Override
+	public FGoods queryById(String id) {
+		// 获取session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+
+		return (FGoods) session.get(FGoods.class, id);
 	}
 }

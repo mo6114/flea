@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd" >
 <struts>
-	<package name="fUser" extends = "struts-default" namespace = "/fUser">
-		<action name="register" class = "fUserAction" method = "register">
-			<result name = "success" type = "redirect">/Test/test.jsp</result>
-			<result name = "error" type = "redirect">/Test/test1.jsp</result>
+	<package name="fUser" extends="struts-default" namespace="/fUser">
+		<action name="register" class="fUserAction" method="register">
+			<result name="success" type="redirect">/Test/test.jsp</result>
+			<result name="error" type="redirect">/Test/test1.jsp</result>
 		</action>
-		<action name="login" class = "fUserAction" method = "login"></action>
-		<action name="quit" class = "fUserAction" method = "quit"></action>
-		<action name="emailIsExist" class = "fUserAction" method = "emailIsExist"></action>
-		<action name="userNameIsExist" class = "fUserAction" method = "userNameIsExist"></action>
+		<action name="login" class="fUserAction" method="login"></action>
+		<action name="quit" class="fUserAction" method="quit"></action>
+		<action name="emailIsExist" class="fUserAction" method="emailIsExist"></action>
+		<action name="userNameIsExist" class="fUserAction" method="userNameIsExist"></action>
 	</package>
-	
-	<package name="fGoods" extends = "struts-default" namespace = "/fGoods">
-		<action name="onShelves" class = "fGoodsAction" method = "onShelves">
-			<result name = "success" type = "redirect">/Test/test.jsp</result>
+
+	<package name="fGoods" extends="struts-default" namespace="/fGoods">
+		<action name="onShelves" class="fGoodsAction" method="onShelves">
+			<result name="success" type="redirect">/Test/test.jsp</result>
 		</action>
-		<action name="showTest" class = "fGoodsAction" method = "showTest">
-			<result name = "success" type = "redirect">/Test/showTest.jsp</result>
+		<action name="queryByConditions" class="fGoodsAction" method="queryByConditions">
+			<param name="pageSize">12</param>
+			<result name="success" type="dispatcher">/Test/showTest.jsp</result>
+		</action>
+		<action name="queryById" class="fGoodsAction" method="queryById">
+			<result name="success" type="dispatcher">/Test/showTest.jsp</result>
+		</action>
+		<action name="showTest" class="fGoodsAction" method="showTest">
+			<result name="success" type="redirect">/Test/showTest.jsp</result>
 		</action>
 	</package>
 </struts>

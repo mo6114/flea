@@ -14,7 +14,7 @@ public class MainTest {
 		
 		FGoodsServiceImpl fs = applicationContext.getBean(FGoodsServiceImpl.class);
 		//Test2 te = new Test2();
-		fs.queryByConditions(1, 0, 1);
+		//fs.queryByConditions(1, 0, 1);
 	}
 	
 	@Test

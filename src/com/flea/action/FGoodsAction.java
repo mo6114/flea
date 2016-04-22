@@ -13,6 +13,8 @@ import com.flea.util.StringUtil;
 
 public class FGoodsAction extends BaseAction {
 
+	private String id;
+	private int times;
 	private String name;
 	private String two_level;
 	private String one_level;
@@ -22,8 +24,72 @@ public class FGoodsAction extends BaseAction {
 	// 上传上来的图片内容及名称
 	private File picture;
 	private String pictureFileName;
+	private int categoryNum;
+	private int orderByNum;
+	private int ruleNum;
+	private int pageNum;
+	private int pageSize;
 	private FGoodsService fGoodsService;
 	private FGoods fGoods;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public int getTimes() {
+		return times;
+	}
+
+	public void setTimes(int times) {
+		this.times = times;
+	}
+
+	public int getCategoryNum() {
+		return categoryNum;
+	}
+
+	public void setCategoryNum(int categoryNum) {
+		this.categoryNum = categoryNum;
+	}
+
+	public int getOrderByNum() {
+		return orderByNum;
+	}
+
+	public void setOrderByNum(int orderByNum) {
+		this.orderByNum = orderByNum;
+	}
+
+	public int getRuleNum() {
+		return ruleNum;
+	}
+
+	public void setRuleNum(int ruleNum) {
+		this.ruleNum = ruleNum;
+	}
+
+	public int getPageNum() {
+		if (pageNum == 0)
+			return 1;
+		else
+			return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public String getName() {
 		return name;
@@ -131,17 +197,42 @@ public class FGoodsAction extends BaseAction {
 		}
 		return "success";
 	}
+
+	public String queryByConditions() {
+		try {
+			List<FGoods> fGoodsList = fGoodsService.queryByConditions(categoryNum, orderByNum, ruleNum, getPageNum(),
+					pageSize);
+			this.setValue("#request.fGoodsList", fGoodsList);
+		} catch (Exception e) {
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
 	
-	//showTest
+	public String queryById() {
+		try {
+			fGoods = fGoodsService.queryById(id, times);
+			this.setValue("#request.fGoods", fGoods);
+		} catch (Exception e) {
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
+
+	// showTest
 	public String showTest() {
-		List<String> list = new ArrayList<String>();
-		list.add("a");
-		list.add("b");
-		list.add("c");
-		list.add("d");
-		list.add("e");
-		list.add("f");
-		list.add("g");
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
 		this.setValue("#session.list", list);
 		return "success";
 	}

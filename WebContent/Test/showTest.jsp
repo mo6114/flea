@@ -9,6 +9,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<s:iterator value="#session.list" ></s:iterator>
+<s:iterator var="list" value="#session.list" status="xixi">
+	<s:property value = "#list"/>nn
+	<s:property value="#xixi.index"/>
+	<s:if test="(#xixi.index+1)%3==0">zzz<br></s:if>
+</s:iterator>
+<s:iterator value="#request.fGoodsList">
+	<s:property value="name"/>
+	<s:property value="email"/>
+	<s:property value="id"/>
+</s:iterator>
+<s:property value = "#request.fGoods.name"/>
+<s:property value = "#request.fGoods.email"/>
 </body>
 </html>
