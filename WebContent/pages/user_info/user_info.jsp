@@ -182,8 +182,8 @@
 	<script src="../public/jquery/dist/jquery.min.js"></script>
 	<script src="../public/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../public/login-output/js/XMLasynchronous.js"></script>
-	<script src="../public/login-output/js/glo-validate.js"></script>
 	<script src="../public/login-output/js/login-output.js"></script>
+	<script src="../public/login-output/js/glo-validate.js"></script>
 	<script src="../public/login-output/js/glo-select.js"></script>
 	<script src="../public/js/sign-in-up.js"></script>
 </body>

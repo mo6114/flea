@@ -46,6 +46,10 @@ public class FGoodsServiceImpl implements FGoodsService {
 			fGoods.setTimeOnShelves(new Date());
 			fGoods.setStatus(1);
 			fGoods.setTimes(0);
+			System.out.println(fGoods);
+			fGoods.setOne_level(CategoryUtil.getCategory(Integer.parseInt(fGoods.getOne_level())));
+			fGoods.setTwo_level(CategoryUtil.getCategory(Integer.parseInt(fGoods.getTwo_level())));
+			System.out.println(fGoods);
 			fGoodsDao.insertFGoods(fGoods);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,21 +59,42 @@ public class FGoodsServiceImpl implements FGoodsService {
 		transaction.commit();
 	}
 
-	//通过类别码与排序码查询商品
+	// 通过类别码与排序码查询商品
 	@Override
-	public List<FGoods> queryByConditions(int categoryNum, int orderByNum,int ruleNum) {
+	public List<FGoods> queryByConditions(int categoryNum, int orderByNum, int ruleNum, int pageNum, int pageSize) {
 		// 获取session并开启事务
 		Session session = sessionFactory.getCurrentSession();
 		Transaction transaction = session.beginTransaction();
-		
+
+		List<FGoods> fGoodsList = null;
+
 		try {
 			String hql = StringUtil.createHQL(categoryNum, orderByNum, ruleNum);
-			fGoodsDao.queryByHQL(hql, CategoryUtil.getCategory(categoryNum));
+			fGoodsList = fGoodsDao.queryByHQL(hql, pageNum, pageSize, CategoryUtil.getCategory(categoryNum));
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("error");
 		}
 		transaction.commit();
-		return null;
+		return fGoodsList;
+	}
+
+	@Override
+	public FGoods queryById(String id, int times) {
+		// 获取session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+		FGoods fGoods = null;
+
+		try {
+			fGoods = fGoodsDao.queryById(id);
+			if(times == 1)
+				fGoods.setTimes(fGoods.getTimes()+times);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("error");
+		}
+		return fGoods;
 	}
 }

@@ -14,15 +14,15 @@ public class StringUtil {
 	//生成HQL语句
 	public static String createHQL(int categoryNum, int orderByNum , int ruleNum) {
 		if(orderByNum == 0)
-			orderByNum = 4;
+			orderByNum = 1;
 		String hql;
 		if(categoryNum < 10)
 			hql = "where one_level = ?";
 		else
 			hql = "where two_levle = ?";
 		hql = hql + " order by " + CategoryUtil.getOrderBy(orderByNum);
-		// 0代表升序；1代表降序
-		if(ruleNum == 0)
+		// 1代表升序；0代表降序
+		if(ruleNum != 0)
 			hql = hql + " asc";
 		else
 			hql = hql + " desc";

@@ -10,5 +10,7 @@ public interface FGoodsDao {
 
 	public void insertFGoods(FGoods fGoods);
 
-	public List<FGoods> queryByHQL(String hql, String... str);
+	public List<FGoods> queryByHQL(String hql,int pageNum,int pageSize, String... str);
+	
+	public FGoods queryById(String id);
 }

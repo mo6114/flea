@@ -128,6 +128,7 @@ public class FUserAction extends BaseAction {
 		this.removeSession("email");
 		this.removeSession("userName");
 
+		System.out.println("111");
 		PrintWriter printWriter = getPrintWriter();
 		printWriter.print("true");
 		printWriter.flush();
