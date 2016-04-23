@@ -200,9 +200,13 @@ public class FGoodsAction extends BaseAction {
 
 	public String queryByConditions() {
 		try {
+			if(categoryNum != 0)
+				this.setValue("#session.categoryNum", categoryNum);
+			if(categoryNum == 0)
+				categoryNum = (int)this.findValue("#session.categoryNum");
 			List<FGoods> fGoodsList = fGoodsService.queryByConditions(categoryNum, orderByNum, ruleNum, getPageNum(),
 					pageSize);
-			this.setValue("#request.fGoodsList", fGoodsList);
+			this.setValue("#session.fGoodsList", fGoodsList);
 		} catch (Exception e) {
 			// 出现异常且为“error”时跳转到相应页面
 			if ("error".equals(e.getMessage()))

@@ -25,7 +25,7 @@
 			<span class="icon-angle-down">&nbsp;</span>
 		</div>
 		<div class="btn_set">
-			<a><s:property value = "#session.userName"/></a>
+			<a href="${pageContext.request.contextPath}/pages/user_info/user_info.jsp"><s:property value = "#session.userName"/></a>
 			<a href="${pageContext.request.contextPath}/fUser/quit">退出</a>
 		</div>
 	</div>

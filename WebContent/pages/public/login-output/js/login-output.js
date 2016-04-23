@@ -6,7 +6,7 @@ var glo_login=(function(){
     var current;
     //=========================创建结构==============================//
     var Coverdom = document.createElement('div');
-    var Coverdominner ='<div id="glo-login-wraper"> <div class="cont_tabs_login"> <ul class="ul_tabs"><li class="active"><a class="signin-btn" id="login-form-area-nav">登录</a> <span class="linea_bajo_nom"></span> </li> <li> <a id="signup-form-area-nav" class="signup-btn">注册</a> <span class="linea_bajo_nom"></span> </li> </ul> </div> <div class="login-form-area"> <div class="line"> <input type="text" class="username" name="username" placeholder="用户名"><br> </div> <div class="line"> <input type="password" class="password" name="password" placeholder="密码"><br> </div> <button class="submit" type="submit">登录</button> </div> <div class="signup-form-area" id="signup-form-area"> <div class="line"> <input type="text" class="username" name="username" placeholder="用户名"><br> <label class="username-tip tip"></label> </div> <div class="line"> <input type="text" class="email" name="email" placeholder="邮箱"><br> <label class="email-tip tip"></label> </div> <div class="line"> <input type="password" class="password" name="password" placeholder="密码"><br> <label class="password-tip tip"></label> </div> <div class="line"> <input type="password" class="confirm_password" placeholder="再次输入密码"><br> <label class="confirm_password-tip tip"></label> </div> <div class="line"> <input type="text" class="phone" name="phone" placeholder="手机号码"><br> <label class="phone-tip tip"></label> </div> <div id="glo-select"> <div class="wraper"> <ul class="select-list province fold"> </ul> <ul class="select-list school fold"></ul> </div> </div> <button class="submit" type="submit">注册</button> </div> </div>';
+    var Coverdominner ='<div id="glo-login-wraper"> <div class="cont_tabs_login"> <ul class="ul_tabs"><li class="active"><a class="signin-btn" id="login-form-area-nav">登录</a> <span class="linea_bajo_nom"></span> </li> <li> <a id="signup-form-area-nav" class="signup-btn">注册</a> <span class="linea_bajo_nom"></span> </li> </ul> </div> <div class="login-form-area"> <div class="line"> <input type="text" class="username" name="username" placeholder="用户名"><br> </div> <div class="line"> <input type="password" class="password" name="password" placeholder="密码"><br> </div> <button class="submit" type="submit">登录</button> </div> <div class="signup-form-area" id="signup-form-area"> <div class="line"> <input type="text" class="username" name="username" placeholder="用户名"><br> <label class="username-tip tip"></label> </div> <div class="line"> <input type="text" class="email" name="email" placeholder="邮箱"><br> <label class="email-tip tip"></label> </div> <div class="line"> <input type="password" class="password" name="password" placeholder="密码"><br> <label class="password-tip tip"></label> </div> <div class="line"> <input type="password" class="confirm_password" placeholder="再次输入密码"><br> <label class="confirm_password-tip tip"></label> </div> <div class="line"> <input type="text" class="phone" name="mobile" placeholder="手机号码"><br> <label class="phone-tip tip"></label> </div> <div id="glo-select"> <div class="wraper"> <ul class="select-list province fold"> </ul> <ul class="select-list school fold"></ul> </div> </div> <button class="submit" type="submit">注册</button> </div> </div>';
     Coverdom.id = 'glo-login-cover';
     Coverdom.innerHTML =  Coverdominner;
     document.body.insertBefore(Coverdom,document.body.firstElementChild);
@@ -61,12 +61,12 @@ var glo_login=(function(){
                 current = viewStack[str];
                 viewStack[str].init();
                 $(viewStack[str].view).fadeIn();
-                console.log('当前'+viewStack[str].navBtn);
+                
                 viewStack[str].navBtn.parentNode.classList.add('active');
             }else{
                 $(viewStack[str].view).hide();
                 viewStack[str].navBtn.parentNode.classList.remove('active');
-                console.log(viewStack[str].navBtn);
+             
             }
         }
     }

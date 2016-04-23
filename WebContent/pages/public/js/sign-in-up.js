@@ -45,6 +45,9 @@
                 }else{
                     if(res){
                         glo_login.success();
+                        setTimeout(function(){
+                        	glo_login.setCurrent('登录页面');
+                        },3000)
                     }
                 }
             });
@@ -70,6 +73,9 @@
                     glo_login.success();
                     setTimeout(function(){
                         glo_login.close();
+                        setTimeout(function(){
+                        	location.reload(true);
+                        },500)
                     },2000);
                 }else{
                     glo_login.failed();

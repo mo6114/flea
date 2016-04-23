@@ -18,7 +18,7 @@
 		</action>
 		<action name="queryByConditions" class="fGoodsAction" method="queryByConditions">
 			<param name="pageSize">12</param>
-			<result name="success" type="dispatcher">/Test/showTest.jsp</result>
+			<result name="success" type="redirect">/pages/items/index.jsp</result>
 		</action>
 		<action name="queryById" class="fGoodsAction" method="queryById">
 			<result name="success" type="dispatcher">/Test/showTest.jsp</result>
