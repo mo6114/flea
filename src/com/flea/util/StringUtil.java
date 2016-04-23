@@ -3,6 +3,8 @@ package com.flea.util;
 import java.util.Date;
 
 public class StringUtil {
+	
+	private static int ruleNum;
 
 	// 重铸文件名
 	public static String newFileName(String fileName) {
@@ -27,5 +29,16 @@ public class StringUtil {
 		else
 			hql = hql + " desc";
 		return hql;
+	}
+	
+	public static int getRuleNum(int oldOrderByNum,int newOrderByNum) {
+		if(oldOrderByNum == newOrderByNum) {
+			if(ruleNum == 1)
+				ruleNum =0;
+			else
+				ruleNum =1;
+		} else
+			ruleNum = 0;
+		return ruleNum;
 	}
 }

@@ -40,3 +40,7 @@ graduation-project<br>
 验证用户名是否存在：/flea/fUser/userNameIsExist<br>
 验证邮箱是否存在：/flea/fUser/emailIsExist<br>
 <br>
+session<br>
+fUser:email、userName<br>
+fGoods：categoryNum<br>
+<br>

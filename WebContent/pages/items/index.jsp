@@ -69,49 +69,49 @@
 			<div class="all-cgy">
 				<ul>
 					<li><a class="active"
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=1&ruleNum=0">图书
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=1&ruleNum=0&orderByNum=1">图书
 							/ books</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=11&ruleNum=0">小说
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=11&ruleNum=0&orderByNum=1">小说
 							/ xiaoshuo</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=12&ruleNum=0">杂志
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=12&ruleNum=0&orderByNum=1">杂志
 							/ magzines</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=13&ruleNum=0">学习资料
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=13&ruleNum=0&orderByNum=1">学习资料
 							/ studies</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=2&ruleNum=0">服装
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=2&ruleNum=0&orderByNum=1">服装
 							/ cloths</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=21&ruleNum=0">上装
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=21&ruleNum=0&orderByNum=1">上装
 							/ cloths</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=22&ruleNum=0">下装
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=22&ruleNum=0&orderByNum=1">下装
 							/ cloths</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=23&ruleNum=0">套装
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=23&ruleNum=0&orderByNum=1">套装
 							/ cloths</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=24&ruleNum=0">鞋子
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=24&ruleNum=0&orderByNum=1">鞋子
 							/ shoes</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=3&ruleNum=0">电子产品
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=3&ruleNum=0&orderByNum=1">电子产品
 							/ eletrics</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=31&ruleNum=0">手机
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=31&ruleNum=0&orderByNum=1">手机
 							/ phones</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=32&ruleNum=0">笔记本电脑
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=32&ruleNum=0&orderByNum=1">笔记本电脑
 							/ laptop</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=33&ruleNum=0">平板电脑
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=33&ruleNum=0&orderByNum=1">平板电脑
 							/ broad</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=34&ruleNum=0">外设
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=34&ruleNum=0&orderByNum=1">外设
 							/ outsets</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=4&ruleNum=0">其它
+						href="${pageContext.request.contextPath}/fGoods/queryByConditions?categoryNum=4&ruleNum=0&orderByNum=1">其它
 							/ other</a></li>
 				</ul>
 			</div>
@@ -120,21 +120,21 @@
 				<div class="list-bar">
 					<ul class="sortTag">
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称降序</a></li>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称</a></li>
+						<%-- <li class="tag"><a
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=1">名称升序</a></li> --%>
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=1">名称升序</a></li>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=0">价格</a></li>
+						<%-- <li class="tag"><a
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=1">价格升序</a></li> --%>
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=0">价格降序</a></li>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=0">点击量</a></li>
+						<%-- <li class="tag"><a
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=1">点击量升序</a></li> --%>
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=1">价格升序</a></li>
-						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=0">点击量降序</a></li>
-						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=1">点击量升序</a></li>
-						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=0">上架日期降序</a></li>
-						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=1">上架日期升序</a></li>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=0">上架日期</a></li>
+						<%-- <li class="tag"><a
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=1">上架日期升序</a></li> --%>
 					</ul>
 				</div>
 				<div class="item-list">

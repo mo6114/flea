@@ -204,8 +204,15 @@ public class FGoodsAction extends BaseAction {
 				this.setValue("#session.categoryNum", categoryNum);
 			if(categoryNum == 0)
 				categoryNum = (int)this.findValue("#session.categoryNum");
+			int oldOrderByNum;
+			if(this.findValue("#session.orderByNum")==null)
+				oldOrderByNum = 0;
+			else
+				oldOrderByNum = (int)this.findValue("#session.orderByNum");
+			ruleNum = StringUtil.getRuleNum(oldOrderByNum, orderByNum);
 			List<FGoods> fGoodsList = fGoodsService.queryByConditions(categoryNum, orderByNum, ruleNum, getPageNum(),
 					pageSize);
+			this.setValue("#session.orderByNum", orderByNum);
 			this.setValue("#session.fGoodsList", fGoodsList);
 		} catch (Exception e) {
 			// 出现异常且为“error”时跳转到相应页面
