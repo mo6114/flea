@@ -55,7 +55,7 @@ var rules = {
 var glo_validate = (function(){
     var glo_validate = function(elements,rules){
         var elem = elements,
-            form = document.getElementById(elem.form),
+            form = document.querySelector('#'+elem.form),
             Parts = [];
         //既定校验规则集合
         var staticRules = {
@@ -147,7 +147,7 @@ var glo_validate = (function(){
                         var rule1 = new fn();
                         rule1.test(self.dom,function(err,res){
                             if(err){
-                                self.message.innerHTML = '数据传输出现问题';
+                                self.message.innerHTML = '服务器端出现问题';
                                 self.state.ajax = false;
                             }else{
                                 if(res==='true'){

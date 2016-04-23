@@ -9,11 +9,7 @@
     for(var i=0,btn;btn=aBtn[i++];){
         btn.addEventListener('click',function(){
             glo_login.pop();
-            if(this.innerHTML==='登录'){
-                glo_login.setCurrent('signin');
-            }else{
-                glo_login.setCurrent('signup');
-            }
+            glo_login.setCurrent(this.innerHTML+'页面');
         },false)
     }
     //判断结点是否存在指定父元素
@@ -45,6 +41,7 @@
             data.school = oSchool;
             XMLasynchronous('post','/flea/fUser/register',data,true,function(err,res){
                 if(err){
+                    glo_login.failed();
                 }else{
                     if(res){
                         glo_login.success();
@@ -67,10 +64,13 @@
         data.password = password;
         XMLasynchronous('post','/flea/fUser/login',data,true,function(err,res){
             if(err){
-                alert(err)
+                glo_login.failed();
             }else{
                 if(res==='true'){
-                    oBtnSet.innerHTML = '<a href="../user_info/user_info.html">'+glo_login.success().user+'</a><a href="#">退出</a>'
+                    glo_login.success();
+                    setTimeout(function(){
+                        glo_login.close();
+                    },2000);
                 }else{
                     glo_login.failed();
                 }

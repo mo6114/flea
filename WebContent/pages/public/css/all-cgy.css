@@ -1,0 +1,30 @@
+#content{
+    padding-left: 240px;
+    padding-right: 50px;
+    margin: 1px;
+
+}
+#content .all-cgy{
+    width:190px;
+    line-height:30px;
+    margin-left: -190px;
+    background-color: rgb(27, 27, 27);
+    float: left;
+}
+#content .all-cgy ul{
+    width:100%;
+    padding:0 10px;
+}
+#content .all-cgy li{
+    border-bottom: 1px solid rgb(41, 41, 41);
+    text-align: center;
+}
+#content .all-cgy a{
+    color:rgb(219, 219, 219);
+    font-size: 13px;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    cursor: pointer;
+}
+#content .all-cgy a.active{
+    color:red;
+}
