@@ -200,16 +200,27 @@ public class FGoodsAction extends BaseAction {
 
 	public String queryByConditions() {
 		try {
-			if(categoryNum != 0)
+			// 获取categoryNum
+			if (categoryNum != 0)
 				this.setValue("#session.categoryNum", categoryNum);
-			if(categoryNum == 0)
-				categoryNum = (int)this.findValue("#session.categoryNum");
+			if (categoryNum == 0)
+				categoryNum = (int) this.findValue("#session.categoryNum");
+			/*// 获取以前的orderByNum
 			int oldOrderByNum;
-			if(this.findValue("#session.orderByNum")==null)
+			if (this.findValue("#session.orderByNum") == null)
 				oldOrderByNum = 0;
 			else
-				oldOrderByNum = (int)this.findValue("#session.orderByNum");
-			ruleNum = StringUtil.getRuleNum(oldOrderByNum, orderByNum);
+				oldOrderByNum = (int) this.findValue("#session.orderByNum");
+			// 获取以前及当前的pageNum
+			int newPageNum;
+			int oldPageNum;
+			newPageNum = getPageNum();
+			if (this.findValue("#session.oldPageNum") == null)
+				oldPageNum = 1;
+			else
+				oldPageNum = (int) this.findValue("#session.oldPageNum");
+			// 获取当前排序规则
+			ruleNum = StringUtil.getRuleNum(oldOrderByNum, orderByNum, oldPageNum, newPageNum);*/
 			List<FGoods> fGoodsList = fGoodsService.queryByConditions(categoryNum, orderByNum, ruleNum, getPageNum(),
 					pageSize);
 			this.setValue("#session.orderByNum", orderByNum);
@@ -221,7 +232,7 @@ public class FGoodsAction extends BaseAction {
 		}
 		return "success";
 	}
-	
+
 	public String queryById() {
 		try {
 			fGoods = fGoodsService.queryById(id, times);

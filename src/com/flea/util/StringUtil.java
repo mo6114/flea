@@ -31,7 +31,7 @@ public class StringUtil {
 		return hql;
 	}
 	
-	public static int getRuleNum(int oldOrderByNum,int newOrderByNum) {
+	public static int getRuleNum(int oldOrderByNum,int newOrderByNum,int oldPageNum,int newPageNum) {
 		if(oldOrderByNum == newOrderByNum) {
 			if(ruleNum == 1)
 				ruleNum =0;
