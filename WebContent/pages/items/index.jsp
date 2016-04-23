@@ -120,21 +120,21 @@
 				<div class="list-bar">
 					<ul class="sortTag">
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称</a></li>
-						<%-- <li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=1">名称升序</a></li> --%>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称</a><span></span></li>
+						<%--<li><a--%>
+							<%--href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=1">名称升序</a></li>--%>
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=0">价格</a></li>
-						<%-- <li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=1">价格升序</a></li> --%>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=0">价格</a><span></span></li>
+						<%--<li><a--%>
+							<%--href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=1">价格升序</a></li>--%>
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=0">点击量</a></li>
-						<%-- <li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=1">点击量升序</a></li> --%>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=0">点击量</a><span></span></li>
+						<%--<li><a--%>
+							<%--href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=1">点击量升序</a></li>--%>
 						<li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=0">上架日期</a></li>
-						<%-- <li class="tag"><a
-							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=1">上架日期升序</a></li> --%>
+							href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=0">上架日期</a><span></span></li>
+						<%--<li><a--%>
+							<%--href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=1">上架日期升序</a></li>--%>
 					</ul>
 				</div>
 				<div class="item-list">

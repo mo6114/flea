@@ -50,7 +50,7 @@
 }
 #content .show .sortTag .tag a:hover{
     text-decoration: none ;
-    color: #337ab7;
+    color: black;
 }
 #content .show .sortTag::after{
     content: '';
