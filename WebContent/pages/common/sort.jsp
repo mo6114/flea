@@ -84,34 +84,30 @@
 		<%--href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=2&ruleNum=1">上架日期升序</a></li>--%>
 	</ul>
 </div>
-<div class="item-list">
+	<div class="item-list">
 	<s:iterator var="list" value="#session.fGoodsList" status="times">
-		<div class="thumbnail" id="item_3">
-			<img
-				src="${pageContext.request.contextPath}/uploadPicture/<s:property value = 'picture'/>">
-			<div class="caption">
-				<h3>
-					<a
-						href="${pageContext.request.contextPath}/fGoods/queryById?id=<s:property value='id'/>"><s:property
-							value="name" /></a>
-				</h3>
-				<p>
-					价格:¥
-					<s:property value="price" />
-				</p>
-				<p>
-					<a
-						href="${pageContext.request.contextPath}/fOrder/insertShoppingCart?id=<s:property value='id'/>"
-						class="btn btn-warning" role="button"> 加入购物车 </a> <a
-						href="${pageContext.request.contextPath}/fOrder/controlBuySkip?id=<s:property value='id'/>"
-						class="btn btn-warning" role="button"> 购买 </a>
-				</p>
-			</div>
+		<div class="thumbnail float-title" id="item_3" data-desc="<s:property value='introduction'/>" data-amount="1">
+		<img class="float-img"
+		src="${pageContext.request.contextPath}/uploadPicture/<s:property value = 'picture'/>">
+		<div class="caption">
+		<h3>
+		<a class="float-link" href = "${pageContext.request.contextPath}/fGoods/queryById?id=<s:property value='id'/>"><s:property value="name" /></a>
+		</h3>
+		<p>
+		价格:¥<span class="price"><s:property value="price" /></span>
+
+		</p>
+		<p>
+		<a
+		href="${pageContext.request.contextPath}/fOrder/insertShoppingCart?id=<s:property value='id'/>"
+		class="btn btn-warning force cart" role="button"> 加入购物车 </a> <a
+		href="${pageContext.request.contextPath}/fOrder/controlBuySkip?id=<s:property value='id'/>"
+		class="btn btn-warning force buy" role="button"> 购买 </a>
+		</p>
+		</div>
 		</div>
 		<s:if test="(#times.index+1)%3==0">
 			<br>
 		</s:if>
 	</s:iterator>
-
-
-</div>
+	</div>

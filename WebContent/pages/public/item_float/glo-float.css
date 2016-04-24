@@ -8,6 +8,8 @@
     color:white;
     font-size: 16px;
     font-family: "微软雅黑", "黑体", "新宋体", "Arial Unicode MS";
+    display: none;
+    z-index: 99;
 }
 #glo-float-cover .glo-float-wraper{
     height:100%;
@@ -52,6 +54,7 @@
     display: block;
     bottom: 0;
     left:50%;
+    color:white;
     transform: translateX(-50%);
     cursor: pointer;
     border: 1px solid white;
@@ -59,7 +62,14 @@
     text-align: center;
     transition: all 0.2s ease-in-out;
 }
+#glo-float-cover .btn-set{
+    position: absolute;
+    bottom:100px;
+    left:50%;
+    transform: translateX(-50%);
+}
 #glo-float-cover .back:hover{
+    text-decoration: none;
     background-color: red;
     border-color: red;
 }
