@@ -23,72 +23,16 @@
 </head>
 <body>
 	<div id="huge_wraper">
-		<%-- <div id="top_bar">
-        <div class="cart">
-            <span class="icon-shopping-cart">&nbsp;</span>
-            <span class="mallCart_name">购物车</span>
-            <span class="mallCart_proNum">(0)</span>
-            <span class="icon-angle-down">&nbsp;</span>
-        </div>
-        <div class="btn_set">
-            <button class="memberOption memberLogin btn btn-primary">登录</button>
-            <button class="memberOption memberReg btn btn-default">注册</button>
-        </div>
-    </div> --%>
+		
 		<jsp:include page="/pages/user_info/head.jsp"></jsp:include>
-		<div id="search_bar">
-			<div class="logo">logo</div>
-			<div class="search_box">
-				<div class="input-group">
-					<input type="text" class="form-control"> <span
-						class="input-group-btn">
-						<button class="btn btn-default" type="button">
-							<span class="icon-search">&nbsp;</span>搜索
-						</button>
-					</span>
-				</div>
-			</div>
-		</div>
+		<jsp:include page="/pages/common/serach.jsp"></jsp:include>
 		<div id="nav_bar">
 			<nav class="navbar navbar-inverse" role="navigation">
-			<div>
-				<ul class="nav navbar-nav">
-					<li class="active title"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> 全部分类 <b class="caret"></b>
-					</a></li>
-					<li class="title"><a href="#">首页</a></li>
-					<li class="title"><a href="#">热门点击</a></li>
-					<li class="title"><a href="#">拍卖行</a></li>
-				</ul>
-			</div>
+			<jsp:include page="/pages/common/title.jsp"></jsp:include>
 			</nav>
 		</div>
 		<div id="content">
-			<div class="left-side">
-				<h3>个人中心</h3>
-				<ul class="nav nav-pills nav-stacked">
-					<li><a href="#">我的资料</a></li>
-					<li class="dropdown"><a href="#">我是买家</a>
-						<ul class="menue">
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">我的订单</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">参加的拍卖</a></li>
-						</ul></li>
-					<li class="active"><a href="#">我是卖家</a>
-						<ul class="menue">
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">上架新商品</a>
-							</li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">已上架商品</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">我的订单</a></li>
-							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">我的拍卖</a></li>
-						</ul></li>
-				</ul>
-			</div>
+			<jsp:include page="/pages/common/userInfomation.jsp"></jsp:include>
 			<div class="right-side">
 				<h3>上架新商品</h3>
             <form role="form" action="${pageContext.request.contextPath}/fGoods/onShelves" method = "post" enctype="multipart/form-data">

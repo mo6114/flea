@@ -23,7 +23,7 @@ public class FOrderAction extends BaseAction {
 	private String space;
 	private Date saleTime;
 	private List<String> fGoodsIdList;
- 	private FOrderService fOrderService;
+	private FOrderService fOrderService;
 	private FGoodsService fGoodsService;
 
 	public List<String> getfGoodsIdList() {
@@ -122,6 +122,7 @@ public class FOrderAction extends BaseAction {
 			// System.out.println(fOrder);
 
 			String goodsId = (String) this.findValue("#session.fGoodsId");
+			// System.out.println(goodsId);
 			String buyerEmail = (String) this.findValue("#session.email");
 			// System.out.println("buyerEmail" + buyerEmail);
 			string = fOrderService.createFOrder(fOrder, goodsId, buyerEmail);
@@ -165,32 +166,34 @@ public class FOrderAction extends BaseAction {
 			return "success";
 	}
 
-	//添加购物车项
+	// 添加购物车项
 	public void insertShoppingCart() {
 		FGoods fGoods = fGoodsService.queryById(id, 1);
 		if (this.findValue("#session.shoppingCart") == null) {
-			//List<FGoods> shoppingCart = new ArrayList<FGoods>();
+			// List<FGoods> shoppingCart = new ArrayList<FGoods>();
 			Set<FGoods> shoppingCart = new HashSet<FGoods>();
 			shoppingCart.add(fGoods);
 			this.setValue("#session.shoppingCart", shoppingCart);
 		} else {
-			//List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+			// List<FGoods> shoppingCart = (List<FGoods>)
+			// this.findValue("#session.shoppingCart");
 			Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
 			shoppingCart.add(fGoods);
-			//this.setValue("#session.shoppingCart", shoppingCart);
+			// this.setValue("#session.shoppingCart", shoppingCart);
 		}
 	}
 
 	// 购买多件商品时的session操作
 	public Set<FGoods> shoppingCartOperate(String[] fGoodsIdList) {
-		//List<FGoods> fGoodsList = new ArrayList<FGoods>();
+		// List<FGoods> fGoodsList = new ArrayList<FGoods>();
 		Set<FGoods> fGoodsList = new HashSet<FGoods>();
 		for (String fGoodsId : fGoodsIdList) {
 			fGoodsList.add(fGoodsService.queryById(fGoodsId, 0));
 			System.out.println(fGoodsId);
 		}
 
-		//List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+		// List<FGoods> shoppingCart = (List<FGoods>)
+		// this.findValue("#session.shoppingCart");
 		Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
 		shoppingCart.removeAll(fGoodsList);
 

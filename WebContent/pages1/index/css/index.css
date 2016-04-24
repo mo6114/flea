@@ -1,0 +1,11 @@
+
+/*banner区域*/
+#content .banner{
+    width:100%;
+    height:380px;
+    float: left;
+}
+#content .banner img{
+    width:100%;
+    height:100%;
+}

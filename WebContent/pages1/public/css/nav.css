@@ -1,0 +1,9 @@
+#nav_bar .navbar{
+    border-radius: inherit;
+    margin-bottom: 0;
+    padding-left: 50px;
+}
+#nav_bar .navbar .all{
+    width:190px;
+    text-align: center;
+}

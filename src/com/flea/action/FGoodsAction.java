@@ -250,13 +250,20 @@ public class FGoodsAction extends BaseAction {
 			fGoods = fGoodsService.queryById(id, times);
 			String fGoodsToString = new GsonBuilder().create().toJson(fGoods);
 			PrintWriter printWriter = getPrintWriter();
-			printWriter.print(fGoodsToString);
+			//printWriter.print(fGoodsToString);
+			/*System.out.println(fGoodsToString);
+			printWriter.print("price:1.0,");*/
+			printWriter.print(fGoods.getIntroduction());
 			printWriter.flush();
 		} catch (Exception e) {
 			// 出现异常且为“error”时跳转到相应页面
 			/*if ("error".equals(e.getMessage()))
 				return "error";*/
 		}
+		
+	}
+	
+	public void fGoodsToString(FGoods fGoods) {
 		
 	}
 

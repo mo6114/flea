@@ -1,0 +1,75 @@
+#glo-float-cover{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top: 0;
+    left:0;
+    background-color: rgba(0,0,0,0.8);
+    color:white;
+    font-size: 16px;
+    font-family: "微软雅黑", "黑体", "新宋体", "Arial Unicode MS";
+    display: none;
+    z-index: 99;
+}
+#glo-float-cover .glo-float-wraper{
+    height:100%;
+}
+#glo-float-cover .show-area{
+    width:60%;
+    height:100%;
+    margin: 0 auto;
+    padding-left: 300px;
+    padding-top:20px;
+}
+#glo-float-cover .show-area .img{
+    width:300px;
+    height:400px;
+    float: left;
+    text-align: center;
+    margin-left: -300px;
+}
+.img img{
+    width:100%;
+    height:100%;
+}
+#glo-float-cover .show-area .des{
+    width:100%;
+    height:400px;
+    float: left;
+    padding-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#glo-float-cover .show-area .des .line{
+    line-height:50px;
+}
+#glo-float-cover .show-area .des .detail p{
+    font-size: 13px;
+    line-height: 20px;
+}
+#glo-float-cover .back{
+    position: absolute;
+    width:100px;
+    height:30px;
+    display: block;
+    bottom: 0;
+    left:50%;
+    color:white;
+    transform: translateX(-50%);
+    cursor: pointer;
+    border: 1px solid white;
+    line-height: 30px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+#glo-float-cover .btn-set{
+    position: absolute;
+    bottom:100px;
+    left:50%;
+    transform: translateX(-50%);
+}
+#glo-float-cover .back:hover{
+    text-decoration: none;
+    background-color: red;
+    border-color: red;
+}

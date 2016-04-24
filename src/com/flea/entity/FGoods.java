@@ -157,6 +157,13 @@ public class FGoods implements Serializable {
 				+ timeOnShelves + ", status=" + status + ", amount=" + amount + ", price=" + price + ", times=" + times
 				+ "]";
 	}
+	
+	public String toString(int num) {
+		return "FGoods [id=" + id + ", email=" + email + ", name=" + name + ", one_level=" + one_level + ", twe_level="
+				+ two_level + ", picture=" + picture + ", introduction=" + introduction + ", timeOnShelves="
+				+ timeOnShelves + ", status=" + status + ", amount=" + amount + ", price=" + price + ", times=" + times
+				+ "]";
+	}
 
 	@Override
 	public int hashCode() {

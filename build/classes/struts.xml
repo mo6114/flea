@@ -30,15 +30,15 @@
 	
 	<package name="fOrder" extends = "struts-default" namespace = "/fOrder">
 		<action name="controlBuySkip" class = "fOrderAction" method = "controlBuySkip">
-			<result name = "success" type = "redirect">/Test/shopping.jsp</result>
+			<result name = "success" type = "redirect">/pages/items/buyGoods.jsp</result>
 		</action>
 		<action name="buyOneGoods" class = "fOrderAction" method = "buyOneGoods">
-			<result name = "success" type = "redirect">/Test/test1.jsp</result>
-			<result name = "FundsNotEnough" type = "redirect">/Test/test.jsp</result>
+			<result name = "success" type = "redirect">/pages/items/shoppingSuccess.jsp</result>
+			<result name = "FundsNotEnough" type = "redirect">/pages/items/shoppingFailed.jsp</result>
 		</action>
 		<action name="buyGoods" class = "fOrderAction" method = "buyGoods">
-			<result name = "success" type = "redirect">/Test/test1.jsp</result>
-			<result name = "FundsNotEnough" type = "redirect">/Test/test.jsp</result>
+			<result name = "success" type = "redirect">/pages/items/shoppingSuccess.jsp</result>
+			<result name = "FundsNotEnough" type = "redirect">/pages/items/shoppingFailed.jsp</result>
 		</action>
 		<action name="insertShoppingCart" class = "fOrderAction" method = "insertShoppingCart"></action>
 	</package>

@@ -8,7 +8,7 @@
 	<div id="top_bar">
 		<div class="cart">
 			<span class="icon-shopping-cart">&nbsp;</span> <span
-				class="mallCart_name"><a href="${pageContext.request.contextPath}/Test/showShoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum">(0)</span>
+				class="mallCart_name"><a href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum">(0)</span>
 			<span class="icon-angle-down">&nbsp;</span>
 		</div>
 		<div class="btn_set">
@@ -21,7 +21,7 @@
 	<div id="top_bar">
 		<div class="cart">
 			<span class="icon-shopping-cart">&nbsp;</span> <span
-				class="mallCart_name"><a href="${pageContext.request.contextPath}/Test/showShoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum">(0)</span>
+				class="mallCart_name"><a href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum">(0)</span>
 			<span class="icon-angle-down">&nbsp;</span>
 		</div>
 		<div class="btn_set">
