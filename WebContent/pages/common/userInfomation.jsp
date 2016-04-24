@@ -22,7 +22,7 @@
 				<li role="presentation"><a role="menuitem" tabindex="-1"
 					href="#">上架新商品</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="#">已上架商品</a></li>
+					href="#">我的商品</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"
 					href="#">我的订单</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"

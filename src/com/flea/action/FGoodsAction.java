@@ -24,6 +24,7 @@ public class FGoodsAction extends BaseAction {
 	private String introduction;
 	private float price;
 	private int amount;
+	private int status;
 	// 上传上来的图片内容及名称
 	private File picture;
 	private String pictureFileName;
@@ -263,8 +264,22 @@ public class FGoodsAction extends BaseAction {
 		
 	}
 	
-	public void fGoodsToString(FGoods fGoods) {
-		
+	public String queryByStatus() {
+		try {
+			fGoods = fGoodsService.queryById(id, times);
+			String fGoodsToString = new GsonBuilder().create().toJson(fGoods);
+			PrintWriter printWriter = getPrintWriter();
+			//printWriter.print(fGoodsToString);
+			/*System.out.println(fGoodsToString);
+			printWriter.print("price:1.0,");*/
+			printWriter.print(fGoods.getIntroduction());
+			printWriter.flush();
+		} catch (Exception e) {
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
 	}
 
 	// showTest

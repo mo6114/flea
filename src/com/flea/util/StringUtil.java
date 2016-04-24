@@ -31,6 +31,18 @@ public class StringUtil {
 		return hql;
 	}
 
+	// 根据status生成HQL
+	public static String createHQL(int status) {
+		String hql;
+		if (status == 0)
+			hql = "from FGoods where status = 0";
+		else if (status == 1)
+			hql = "from FGoods where status = 1";
+		else
+			hql = "from FGoods";
+		return hql;
+	}
+
 	public static int getRuleNum(int oldOrderByNum, int newOrderByNum, int oldPageNum, int newPageNum) {
 		if (oldPageNum != newPageNum)
 			return ruleNum;
