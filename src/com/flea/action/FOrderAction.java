@@ -3,7 +3,9 @@ package com.flea.action;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -20,8 +22,17 @@ public class FOrderAction extends BaseAction {
 	private int amount;
 	private String space;
 	private Date saleTime;
-	private FOrderService fOrderService;
+	private List<String> fGoodsIdList;
+ 	private FOrderService fOrderService;
 	private FGoodsService fGoodsService;
+
+	public List<String> getfGoodsIdList() {
+		return fGoodsIdList;
+	}
+
+	public void setfGoodsIdList(List<String> fGoodsIdList) {
+		this.fGoodsIdList = fGoodsIdList;
+	}
 
 	public String getId() {
 		return id;
@@ -81,11 +92,14 @@ public class FOrderAction extends BaseAction {
 			FGoods fGoods = fGoodsService.queryById(id, 1);
 			this.setValue("#session.fGoods", fGoods);
 			if (this.findValue("#session.shoppingCart") == null) {
-				List<FGoods> shoppingCart = new ArrayList<FGoods>();
+				// List<FGoods> shoppingCart = new ArrayList<FGoods>();
+				Set<FGoods> shoppingCart = new HashSet<FGoods>();
 				shoppingCart.add(fGoods);
 				this.setValue("#session.shoppingCart", shoppingCart);
 			} else {
-				List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+				// List<FGoods> shoppingCart = (List<FGoods>)
+				// this.findValue("#session.shoppingCart");
+				Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
 				shoppingCart.add(fGoods);
 				this.setValue("#session.shoppingCart", shoppingCart);
 			}
@@ -105,54 +119,84 @@ public class FOrderAction extends BaseAction {
 			fOrder.setAmount(getAmount());
 			fOrder.setSpace(space);
 			fOrder.setSaleTime(saleTime);
-			System.out.println(fOrder);
+			// System.out.println(fOrder);
 
 			String goodsId = (String) this.findValue("#session.fGoodsId");
 			String buyerEmail = (String) this.findValue("#session.email");
-			System.out.println("buyerEmail" + buyerEmail);
+			// System.out.println("buyerEmail" + buyerEmail);
 			string = fOrderService.createFOrder(fOrder, goodsId, buyerEmail);
 
 			FGoods fGoods = (FGoods) this.findValue("#session.fGoods");
 			this.removeSession("fGoodsId");
 			this.removeSession("fGoods");
-			List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+			Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
 			shoppingCart.remove(fGoods);
 			this.setValue("#session.shoppingCart", shoppingCart);
 		} catch (Exception e) {
-			
+
 		}
-		if("FundsNotEnough".equals(string))
+		if ("FundsNotEnough".equals(string))
 			return "FundsNotEnough";
 		else
 			return "success";
 	}
-	
-	//购买多件商品
+
+	// 购买多件商品(通过购物车购买)
 	public String buyGoods() {
 		String string = null;
 		try {
-			
+			FOrder fOrder = new FOrder();
+			fOrder.setAmount(getAmount());
+			fOrder.setSpace(space);
+			fOrder.setSaleTime(saleTime);
+
+			String buyerEmail = (String) this.findValue("#session.email");
+
+			System.out.println("space:" + getRequest().getParameter("space"));
+			String[] tmp = getRequest().getParameterValues("fGoodsIdList");
+			Set<FGoods> fGoodsList = shoppingCartOperate(tmp);
+			string = fOrderService.createFOrder(fOrder, fGoodsList, buyerEmail);
 		} catch (Exception e) {
-			
+
 		}
-		if("FundsNotEnough".equals(string))
+		if ("FundsNotEnough".equals(string))
 			return "FundsNotEnough";
 		else
 			return "success";
 	}
-	
-	//购买多件商品时的session操作
-	public List<FGoods> shoppingCartOperate(List<String> fGoodsIdList) {
-		List<FGoods> fGoodsList = new ArrayList<FGoods>();
-		for(String fGoodsId : fGoodsIdList)
+
+	//添加购物车项
+	public void insertShoppingCart() {
+		FGoods fGoods = fGoodsService.queryById(id, 1);
+		if (this.findValue("#session.shoppingCart") == null) {
+			//List<FGoods> shoppingCart = new ArrayList<FGoods>();
+			Set<FGoods> shoppingCart = new HashSet<FGoods>();
+			shoppingCart.add(fGoods);
+			this.setValue("#session.shoppingCart", shoppingCart);
+		} else {
+			//List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+			Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
+			shoppingCart.add(fGoods);
+			//this.setValue("#session.shoppingCart", shoppingCart);
+		}
+	}
+
+	// 购买多件商品时的session操作
+	public Set<FGoods> shoppingCartOperate(String[] fGoodsIdList) {
+		//List<FGoods> fGoodsList = new ArrayList<FGoods>();
+		Set<FGoods> fGoodsList = new HashSet<FGoods>();
+		for (String fGoodsId : fGoodsIdList) {
 			fGoodsList.add(fGoodsService.queryById(fGoodsId, 0));
-		
-		List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+			System.out.println(fGoodsId);
+		}
+
+		//List<FGoods> shoppingCart = (List<FGoods>) this.findValue("#session.shoppingCart");
+		Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
 		shoppingCart.removeAll(fGoodsList);
-		
-		if(shoppingCart.isEmpty())
+
+		if (shoppingCart.isEmpty())
 			this.removeSession("shoppingCart");
-		
+
 		return fGoodsList;
 	}
 }

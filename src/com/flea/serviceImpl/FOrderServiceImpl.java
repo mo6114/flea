@@ -2,6 +2,7 @@ package com.flea.serviceImpl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -97,7 +98,7 @@ public class FOrderServiceImpl implements FOrderService {
 
 	//购买多件商品
 	@Override
-	public String createFOrder(FOrder fOrder, List<FGoods> shoppingCart, String buyerEmail) {
+	public String createFOrder(FOrder fOrder, Set<FGoods> shoppingCart, String buyerEmail) {
 		// 获取session并开启事务
 		Session session = sessionFactory.getCurrentSession();
 		Transaction transaction = session.beginTransaction();

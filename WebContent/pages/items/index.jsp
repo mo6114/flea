@@ -240,7 +240,7 @@
 				<div class="list-bar">
 					<ul class="sortTag">
 						<s:if test="#session.orderByNum==1">
-						<s:property value="#session.ruleNum"/>
+							<s:property value="#session.ruleNum" />
 							<s:if test="#session.ruleNum!=1">
 								<li class="tag"><a
 									href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称降序</a><span></span></li>
@@ -254,7 +254,7 @@
 							<li class="tag"><a
 								href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称降序</a><span></span></li>
 						</s:else>
-						
+
 						<s:if test="#session.orderByNum==3">
 							<s:if test="#session.ruleNum!=1">
 								<li class="tag"><a
@@ -269,7 +269,7 @@
 							<li class="tag"><a
 								href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=3&ruleNum=0">价格降序</a><span></span></li>
 						</s:else>
-						
+
 						<s:if test="#session.orderByNum==4">
 							<s:if test="#session.ruleNum!=1">
 								<li class="tag"><a
@@ -284,7 +284,7 @@
 							<li class="tag"><a
 								href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=4&ruleNum=0">点击量降序</a><span></span></li>
 						</s:else>
-						
+
 						<s:if test="#session.orderByNum==2">
 							<s:if test="#session.ruleNum!=1">
 								<li class="tag"><a
@@ -323,15 +323,18 @@
 								src="${pageContext.request.contextPath}/uploadPicture/<s:property value = 'picture'/>">
 							<div class="caption">
 								<h3>
-									<a><s:property value="name" /></a>
+									<a href = "${pageContext.request.contextPath}/fGoods/queryById?id=<s:property value='id'/>"><s:property value="name" /></a>
 								</h3>
 								<p>
 									价格:¥
 									<s:property value="price" />
 								</p>
 								<p>
-									<a href="#" class="btn btn-warning" role="button"> 加入购物车 </a> <a
-										href="${pageContext.request.contextPath}/fOrder/controlBuySkip?id=<s:property value='id'/>" class="btn btn-warning" role="button"> 购买 </a>
+									<a
+										href="${pageContext.request.contextPath}/fOrder/insertShoppingCart?id=<s:property value='id'/>"
+										class="btn btn-warning" role="button"> 加入购物车 </a> <a
+										href="${pageContext.request.contextPath}/fOrder/controlBuySkip?id=<s:property value='id'/>"
+										class="btn btn-warning" role="button"> 购买 </a>
 								</p>
 							</div>
 						</div>

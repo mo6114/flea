@@ -25,6 +25,7 @@ public class BaseAction extends ActionSupport {
 	private HttpSession session;
 
 	public HttpServletRequest getRequest() {
+		request = ServletActionContext.getRequest();
 		return request;
 	}
 

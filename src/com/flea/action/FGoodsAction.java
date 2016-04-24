@@ -1,6 +1,7 @@
 package com.flea.action;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,8 @@ import org.apache.struts2.ServletActionContext;
 import com.flea.entity.FGoods;
 import com.flea.service.FGoodsService;
 import com.flea.util.StringUtil;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class FGoodsAction extends BaseAction {
 
@@ -242,16 +245,19 @@ public class FGoodsAction extends BaseAction {
 	}
 
 	//通过Id查询
-	public String queryById() {
+	public void queryById() {
 		try {
 			fGoods = fGoodsService.queryById(id, times);
-			this.setValue("#request.fGoods", fGoods);
+			String fGoodsToString = new GsonBuilder().create().toJson(fGoods);
+			PrintWriter printWriter = getPrintWriter();
+			printWriter.print(fGoodsToString);
+			printWriter.flush();
 		} catch (Exception e) {
 			// 出现异常且为“error”时跳转到相应页面
-			if ("error".equals(e.getMessage()))
-				return "error";
+			/*if ("error".equals(e.getMessage()))
+				return "error";*/
 		}
-		return "success";
+		
 	}
 
 	// showTest

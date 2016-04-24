@@ -172,7 +172,7 @@ public class FGoods implements Serializable {
 		result = prime * result + Float.floatToIntBits(price);
 		result = prime * result + status;
 		result = prime * result + ((timeOnShelves == null) ? 0 : timeOnShelves.hashCode());
-		result = prime * result + times;
+		//result = prime * result + times;
 		result = prime * result + ((two_level == null) ? 0 : two_level.hashCode());
 		return result;
 	}
@@ -227,8 +227,8 @@ public class FGoods implements Serializable {
 				return false;
 		} else if (!timeOnShelves.equals(other.timeOnShelves))
 			return false;
-		if (times != other.times)
-			return false;
+		/*if (times != other.times)
+			return false;*/
 		if (two_level == null) {
 			if (other.two_level != null)
 				return false;

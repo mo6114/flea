@@ -36,5 +36,10 @@
 			<result name = "success" type = "redirect">/Test/test1.jsp</result>
 			<result name = "FundsNotEnough" type = "redirect">/Test/test.jsp</result>
 		</action>
+		<action name="buyGoods" class = "fOrderAction" method = "buyGoods">
+			<result name = "success" type = "redirect">/Test/test1.jsp</result>
+			<result name = "FundsNotEnough" type = "redirect">/Test/test.jsp</result>
+		</action>
+		<action name="insertShoppingCart" class = "fOrderAction" method = "insertShoppingCart"></action>
 	</package>
 </struts>
