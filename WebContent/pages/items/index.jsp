@@ -331,7 +331,7 @@
 								</p>
 								<p>
 									<a href="#" class="btn btn-warning" role="button"> 加入购物车 </a> <a
-										href="#" class="btn btn-warning" role="button"> 购买 </a>
+										href="${pageContext.request.contextPath}/fOrder/controlBuySkip?id=<s:property value='id'/>" class="btn btn-warning" role="button"> 购买 </a>
 								</p>
 							</div>
 						</div>

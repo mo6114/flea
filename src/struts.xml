@@ -27,4 +27,14 @@
 			<result name="success" type="redirect">/Test/showTest.jsp</result>
 		</action>
 	</package>
+	
+	<package name="fOrder" extends = "struts-default" namespace = "/fOrder">
+		<action name="controlBuySkip" class = "fOrderAction" method = "controlBuySkip">
+			<result name = "success" type = "redirect">/Test/shopping.jsp</result>
+		</action>
+		<action name="buyOneGoods" class = "fOrderAction" method = "buyOneGoods">
+			<result name = "success" type = "redirect">/Test/test1.jsp</result>
+			<result name = "FundsNotEnough" type = "redirect">/Test/test.jsp</result>
+		</action>
+	</package>
 </struts>

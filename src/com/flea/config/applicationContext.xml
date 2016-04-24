@@ -76,10 +76,16 @@
 		autowire="byName"></bean>
 	<bean id="fGoodsService" class="com.flea.serviceImpl.FGoodsServiceImpl"
 		autowire="byName"></bean>
+	<bean id="fOrderDao" class="com.flea.daoImpl.FOrderDaoImpl"
+		autowire="byName"></bean>
+	<bean id="fOrderService" class="com.flea.serviceImpl.FOrderServiceImpl"
+		autowire="byName"></bean>
 
 	<bean id="fUserAction" class="com.flea.action.FUserAction"
 		autowire="byName"></bean>
 	<bean id="fGoodsAction" class="com.flea.action.FGoodsAction"
+		autowire="byName"></bean>
+	<bean id="fOrderAction" class="com.flea.action.FOrderAction"
 		autowire="byName"></bean>
 
 	<bean id="baseAction" class="com.flea.action.BaseAction"></bean>

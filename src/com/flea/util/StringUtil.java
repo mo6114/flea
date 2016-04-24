@@ -19,9 +19,9 @@ public class StringUtil {
 			orderByNum = 1;
 		String hql;
 		if (categoryNum < 10)
-			hql = "where one_level = ?";
+			hql = "where status = 1 and one_level = ?";
 		else
-			hql = "where two_level = ?";
+			hql = "where status = 1 and two_level = ?";
 		hql = hql + " order by " + CategoryUtil.getOrderBy(orderByNum);
 		// 1代表升序；0代表降序
 		if (ruleNum != 0)

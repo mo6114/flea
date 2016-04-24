@@ -1,3 +1,3 @@
 <html>
-	<h1>dasdasdas</h1>
+	<h1>FundsNotEnough</h1>
 </html>

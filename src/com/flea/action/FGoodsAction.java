@@ -198,6 +198,7 @@ public class FGoodsAction extends BaseAction {
 		return "success";
 	}
 
+	//通过条件查询
 	public String queryByConditions() {
 		try {
 			int oldCategoryNum = 0;
@@ -227,7 +228,6 @@ public class FGoodsAction extends BaseAction {
 				ruleNum = StringUtil.getRuleNum(oldOrderByNum, orderByNum, oldPageNum, newPageNum);
 			else
 				ruleNum = 0;
-			System.out.println(orderByNum);
 			List<FGoods> fGoodsList = fGoodsService.queryByConditions(categoryNum, orderByNum, ruleNum, newPageNum,
 					pageSize);
 			this.setValue("#session.ruleNum", ruleNum);
@@ -241,6 +241,7 @@ public class FGoodsAction extends BaseAction {
 		return "success";
 	}
 
+	//通过Id查询
 	public String queryById() {
 		try {
 			fGoods = fGoodsService.queryById(id, times);
