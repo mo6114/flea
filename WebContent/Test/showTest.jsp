@@ -14,10 +14,11 @@
 	<s:property value="#xixi.index"/>
 	<s:if test="(#xixi.index+1)%3==0">zzz<br></s:if>
 </s:iterator>
-<s:iterator value="#request.fGoodsList">
-	<s:property value="name"/>
-	<s:property value="email"/>
-	<s:property value="id"/>
+<s:iterator value="#session.fGoodsList">
+	name:<s:property value="name"/>
+	email:<s:property value="email"/>
+	id:<s:property value="id"/>
+	<br>
 </s:iterator>
 <s:property value = "#request.fGoods.name"/>
 <s:property value = "#request.fGoods.email"/>

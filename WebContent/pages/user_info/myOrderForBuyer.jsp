@@ -23,48 +23,30 @@
 </head>
 <body>
 	<div id="huge_wraper">
-		
+
 		<jsp:include page="/pages/user_info/head.jsp"></jsp:include>
 		<jsp:include page="/pages/common/serach.jsp"></jsp:include>
 		<div id="nav_bar">
-			<nav class="navbar navbar-inverse" role="navigation">
-			<jsp:include page="/pages/common/title.jsp"></jsp:include>
-			</nav>
+			<nav class="navbar navbar-inverse" role="navigation"> <jsp:include
+				page="/pages/common/title.jsp"></jsp:include> </nav>
 		</div>
 		<div id="content">
 			<jsp:include page="/pages/common/userInfomation.jsp"></jsp:include>
+			<!-- 右侧我的商品展示 -->
 			<div class="right-side">
-				<jsp:include page="/pages/user_info/myGoods/head.jsp"></jsp:include>
-            <form role="form" action="${pageContext.request.contextPath}/fGoods/onShelves" method = "post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="inputfile">图片</label>
-                    <input type="file" id="inputfile" name = "picture">
-                    <p class="help-block">上传您的商品图片</p>
-                </div>
-                <div class="form-group">
-                    <label for="name">名称</label>
-                    <input type="text" class="form-control" id="name" name = "name" placeholder="请输入名称">
-                </div>
-                <div class="form-group">
-                    <label for="name">简介</label>
-                    <input type="text" class="form-control" id="introduction" name = "introduction" placeholder="请输入简介">
-                </div>
-                <div class="form-group">
-                    <label for="name">价格</label>
-                    <input type="text" class="form-control" id="price" name = "price" placeholder="请输入价格">
-                </div>
-                <div class="form-group">
-                    <label for="name">数量</label>
-                    <input type="text" class="form-control" id="amount" name = "amount" placeholder="请输入数量">
-                </div>
-                <div class="form-group">
-                    <label for="name">一级菜单</label>
-                    <select name = "one_level"><option>1</option></select>
-                    <label for="name">二级菜单</label>
-                    <select name = "two_level"><option>11</option></select>
-                </div>
-                    <button type="submit" class="btn btn-default">提交</button>
-            </form>
+				<jsp:include page="/pages/user_info/myOrder/headForBuyer.jsp"></jsp:include>
+
+				<s:iterator value="#session.fOrderList">
+	sEmail:<s:property value="sEmail" />
+	bEmail:<s:property value="bEmail" />
+	id:<s:property value="id" />
+					<br>
+					<s:if test="#session.fOrderForBuyerStatus==1">
+						<a href = "${pageContext.request.contextPath}/fOrder/confirmOrder?id=<s:property value='id'/>">确认订单</a>
+						<a href = "${pageContext.request.contextPath}/fOrder/cancelOrderForBuyer?id=<s:property value='id'/>">取消订单</a>
+					</s:if>
+				</s:iterator>
+
 			</div>
 		</div>
 	</div>

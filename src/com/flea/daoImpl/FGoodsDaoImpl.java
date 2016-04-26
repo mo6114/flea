@@ -65,7 +65,7 @@ public class FGoodsDaoImpl implements FGoodsDao {
 	}
 
 	@Override
-	public List<FGoods> queryByHql(String hql, int pageNum, int pageSize) {
+	public List<FGoods> queryByHql(String hql, int pageNum, int pageSize , String email) {
 		// 获取session并开启事务
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
@@ -73,6 +73,7 @@ public class FGoodsDaoImpl implements FGoodsDao {
 		Query query = session.createQuery(hql);
 		query.setFirstResult((pageNum - 1) * pageSize);
 		query.setMaxResults(pageSize);
+		query.setString(0, email);
 		
 		return query.list();
 	}

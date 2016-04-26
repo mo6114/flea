@@ -8,19 +8,19 @@
 <head>
 <meta charset="UTF-8">
 <title>商品列表</title>
-	<link rel="stylesheet" href="css/item.css">
-	<link rel="stylesheet" href="../public/css/all-cgy.css">
-	<link rel="stylesheet" href="../public/css/main.css">
-	<link rel="stylesheet" href="../public/css/top_bar.css">
-	<link rel="stylesheet" href="../public/css/search_bar.css">
-	<link rel="stylesheet" href="../public/css/nav.css">
-	<link rel="stylesheet" href="../public/item_float/glo-float.css">
-	<link rel="stylesheet"
+<link rel="stylesheet" href="css/item.css">
+<link rel="stylesheet" href="../public/css/all-cgy.css">
+<link rel="stylesheet" href="../public/css/main.css">
+<link rel="stylesheet" href="../public/css/top_bar.css">
+<link rel="stylesheet" href="../public/css/search_bar.css">
+<link rel="stylesheet" href="../public/css/nav.css">
+<link rel="stylesheet" href="../public/item_float/glo-float.css">
+<link rel="stylesheet"
 	href="../public/login-output/css/login-output.css">
-	<link rel="stylesheet" href="../public/login-output/css/select.css">
-	<link rel="stylesheet"
+<link rel="stylesheet" href="../public/login-output/css/select.css">
+<link rel="stylesheet"
 	href="../public/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
-	<link rel="stylesheet"
+<link rel="stylesheet"
 	href="../public/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -42,14 +42,13 @@
 						<input type="checkbox" name="fGoodsIdList"
 							value="<s:property value="id"/>">
 						<img
-				src="${pageContext.request.contextPath}/uploadPicture/<s:property value = 'picture'/>">
-				<s:property value="name"/>
-				<s:property value="price"/>
+							src="${pageContext.request.contextPath}/uploadPicture/<s:property value = 'picture'/>">
+						<s:property value="name" />
+						<s:property value="price" />
 				1<br>
 					</s:iterator>
-					请填写交易地址：<input type="text" name="space"> 
-					请填写交易时间：<input type="text"
-						name="saleTime">
+					请填写交易地址：<input type="text" name="space"> 请填写交易时间：<input
+						type="text" name="saleTime">
 					<button type="submit">确认下单</button>
 				</form>
 			</div>

@@ -78,4 +78,5 @@ public class BaseAction extends ActionSupport {
 
 		session.removeAttribute(str);
 	}
+	
 }

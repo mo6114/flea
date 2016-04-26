@@ -13,3 +13,5 @@ update fUser set account = 100 where userName = 'xixi';
 delete from FORDER;
 
 update FGOODS set status = 1;
+
+select * from FORDER where bEmail = 'xixi@qq.com';

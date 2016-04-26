@@ -35,6 +35,7 @@ public class FGoodsServiceImpl implements FGoodsService {
 		this.fGoodsDao = fGoodsDao;
 	}
 
+	// 上架新商品
 	@Override
 	public void onShelves(FGoods fGoods) {
 		// 获取session并开启事务
@@ -89,12 +90,48 @@ public class FGoodsServiceImpl implements FGoodsService {
 
 		try {
 			fGoods = fGoodsDao.queryById(id);
-			if(times == 1)
-				fGoods.setTimes(fGoods.getTimes()+times);
+			if (times == 1)
+				fGoods.setTimes(fGoods.getTimes() + times);
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("error");
 		}
 		return fGoods;
+	}
+
+	@Override
+	public List<FGoods> queryByStatus(int status, int pageNum, int pageSize, String email) {
+		// 获取session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+		List<FGoods> fGoodsList = null;
+
+		try {
+			String hql = StringUtil.createHQLForFGoods(status);
+			fGoodsList = fGoodsDao.queryByHql(hql, pageNum, pageSize, email);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("error");
+		}
+		transaction.commit();
+		return fGoodsList;
+	}
+
+	// 商品下架
+	@Override
+	public void goodsSoldOut(String id) {
+		// 获取session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+		try {
+			FGoods fGoods = fGoodsDao.queryById(id);
+			fGoods.setStatus(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("error");
+		}
+		transaction.commit();
 	}
 }

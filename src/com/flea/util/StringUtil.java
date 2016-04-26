@@ -13,7 +13,7 @@ public class StringUtil {
 		return tmp[0] + new Date().getTime() + "." + tmp[1];
 	}
 
-	// 生成HQL语句
+	// 生成HQL语句(FGoods首页)
 	public static String createHQL(int categoryNum, int orderByNum, int ruleNum) {
 		if (orderByNum == 0)
 			orderByNum = 1;
@@ -31,15 +31,43 @@ public class StringUtil {
 		return hql;
 	}
 
-	// 根据status生成HQL
-	public static String createHQL(int status) {
+	// 根据status生成HQL,1代表上架，2代表下架(FGoods)
+	public static String createHQLForFGoods(int status) {
 		String hql;
-		if (status == 0)
-			hql = "from FGoods where status = 0";
+		if (status == 2)
+			hql = "from FGoods where status = 0 and email = ?";
 		else if (status == 1)
-			hql = "from FGoods where status = 1";
+			hql = "from FGoods where status = 1 and email = ?";
 		else
-			hql = "from FGoods";
+			hql = "from FGoods where email = ?";
+		return hql;
+	}
+
+	// 根据status生成HQL,0代表全部交易，1代表待交易商品，2代表已完成交易，3代表已取消交易(FOrder)
+	public static String createHQLForFOrderSaler(int status) {
+		String hql;
+		if (status == 1)
+			hql = "from FOrder where status = 1 and sEmail = ?";
+		else if (status == 2)
+			hql = "from FOrder where status = 2 and sEmail = ?";
+		else if (status == 3)
+			hql = "from FOrder where status = 0 and sEmail = ?";
+		else
+			hql = "from FOrder where sEmail = ?";
+		return hql;
+	}
+
+	// 根据status生成HQL,0代表全部交易，1代表待交易商品，2代表已完成交易，3代表已取消交易(FOrder)
+	public static String createHQLForFOrderBuyer(int status) {
+		String hql;
+		if (status == 1)
+			hql = "from FOrder where status = 1 and bEmail = ?";
+		else if (status == 2)
+			hql = "from FOrder where status = 2 and bEmail = ?";
+		else if (status == 3)
+			hql = "from FOrder where status = 0 and bEmail = ?";
+		else
+			hql = "from FOrder where bEmail = ?";
 		return hql;
 	}
 

@@ -16,9 +16,23 @@
 		<action name="onShelves" class="fGoodsAction" method="onShelves">
 			<result name="success" type="redirect">/Test/test.jsp</result>
 		</action>
+		<!-- <action name="goodsSoldOut" class = "fGoodsAction" method = "goodsSoldOut"> 
+			<result name = "success" type = "redirectAction">queryByStatus?status=1</result> 
+			</action> -->
+		<action name="goodsSoldOut" class="fGoodsAction" method="goodsSoldOut">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/fGoods</param>
+				<param name="actionName">queryByStatus?status=1</param>
+			</result>
+		</action>
 		<action name="queryByConditions" class="fGoodsAction" method="queryByConditions">
 			<param name="pageSize">12</param>
 			<result name="success" type="redirect">/pages/items/index.jsp</result>
+		</action>
+		<action name="queryByStatus" class="fGoodsAction" method="queryByStatus">
+			<param name="pageSize">10</param>
+			<result name="success" type="redirect">/pages/user_info/allGoods.jsp
+			</result>
 		</action>
 		<action name="queryById" class="fGoodsAction" method="queryById">
 			<result name="success" type="dispatcher">/Test/showTest.jsp</result>
@@ -27,19 +41,51 @@
 			<result name="success" type="redirect">/Test/showTest.jsp</result>
 		</action>
 	</package>
-	
-	<package name="fOrder" extends = "struts-default" namespace = "/fOrder">
-		<action name="controlBuySkip" class = "fOrderAction" method = "controlBuySkip">
-			<result name = "success" type = "redirect">/pages/items/buyGoods.jsp</result>
+
+	<package name="fOrder" extends="struts-default" namespace="/fOrder">
+		<action name="controlBuySkip" class="fOrderAction" method="controlBuySkip">
+			<result name="success" type="redirect">/pages/items/buyGoods.jsp</result>
 		</action>
-		<action name="buyOneGoods" class = "fOrderAction" method = "buyOneGoods">
-			<result name = "success" type = "redirect">/pages/items/shoppingSuccess.jsp</result>
-			<result name = "FundsNotEnough" type = "redirect">/pages/items/shoppingFailed.jsp</result>
+		<action name="buyOneGoods" class="fOrderAction" method="buyOneGoods">
+			<result name="success" type="redirect">/pages/items/shoppingSuccess.jsp
+			</result>
+			<result name="FundsNotEnough" type="redirect">/pages/items/shoppingFailed.jsp
+			</result>
 		</action>
-		<action name="buyGoods" class = "fOrderAction" method = "buyGoods">
-			<result name = "success" type = "redirect">/pages/items/shoppingSuccess.jsp</result>
-			<result name = "FundsNotEnough" type = "redirect">/pages/items/shoppingFailed.jsp</result>
+		<action name="buyGoods" class="fOrderAction" method="buyGoods">
+			<result name="success" type="redirect">/pages/items/shoppingSuccess.jsp
+			</result>
+			<result name="FundsNotEnough" type="redirect">/pages/items/shoppingFailed.jsp
+			</result>
 		</action>
-		<action name="insertShoppingCart" class = "fOrderAction" method = "insertShoppingCart"></action>
+		<action name="queryByStatusForBuyer" class="fOrderAction" method="queryByStatusForBuyer">
+			<param name="pageSize">10</param>
+			<result name="success" type="redirect">/pages/user_info/myOrderForBuyer.jsp
+			</result>
+		</action>
+		<action name="queryByStatusForSaler" class="fOrderAction" method="queryByStatusForSaler">
+			<param name="pageSize">10</param>
+			<result name="success" type="redirect">/pages/user_info/myOrderForSaler.jsp
+			</result>
+		</action>
+		<action name="insertShoppingCart" class="fOrderAction" method="insertShoppingCart"></action>
+		<action name="confirmOrder" class="fOrderAction" method="confirmOrder">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/fOrder</param>
+				<param name="actionName">queryByStatusForBuyer?status=1</param>
+			</result>
+		</action>
+		<action name="cancelOrderForBuyer" class="fOrderAction" method="cancelOrderForBuyer">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/fOrder</param>
+				<param name="actionName">queryByStatusForBuyer?status=1</param>
+			</result>
+		</action>
+		<action name="cancelOrderForSaler" class="fOrderAction" method="cancelOrderForSaler">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/fOrder</param>
+				<param name="actionName">queryByStatusForSaler?status=1</param>
+			</result>
+		</action>
 	</package>
 </struts>

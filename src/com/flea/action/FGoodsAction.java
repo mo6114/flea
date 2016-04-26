@@ -36,6 +36,14 @@ public class FGoodsAction extends BaseAction {
 	private FGoodsService fGoodsService;
 	private FGoods fGoods;
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -201,6 +209,18 @@ public class FGoodsAction extends BaseAction {
 		}
 		return "success";
 	}
+	
+	// 商品下架
+	public String goodsSoldOut() {
+		try {
+			fGoodsService.goodsSoldOut(id);
+		} catch (Exception e) {
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
 
 	//通过条件查询
 	public String queryByConditions() {
@@ -251,9 +271,7 @@ public class FGoodsAction extends BaseAction {
 			fGoods = fGoodsService.queryById(id, times);
 			String fGoodsToString = new GsonBuilder().create().toJson(fGoods);
 			PrintWriter printWriter = getPrintWriter();
-			//printWriter.print(fGoodsToString);
-			/*System.out.println(fGoodsToString);
-			printWriter.print("price:1.0,");*/
+			
 			printWriter.print(fGoods.getIntroduction());
 			printWriter.flush();
 		} catch (Exception e) {
@@ -264,17 +282,19 @@ public class FGoodsAction extends BaseAction {
 		
 	}
 	
+	//通过status查询订单，1代表上架，2代表下架
 	public String queryByStatus() {
 		try {
-			fGoods = fGoodsService.queryById(id, times);
-			String fGoodsToString = new GsonBuilder().create().toJson(fGoods);
-			PrintWriter printWriter = getPrintWriter();
-			//printWriter.print(fGoodsToString);
-			/*System.out.println(fGoodsToString);
-			printWriter.print("price:1.0,");*/
-			printWriter.print(fGoods.getIntroduction());
-			printWriter.flush();
+			if(status == 0)
+				status = (int)this.findValue("#session.status");
+			this.setValue("#session.status", status);
+			String email = (String)this.findValue("#session.email");
+			
+			List<FGoods> fGoodsList = fGoodsService.queryByStatus(status, getPageNum(), pageSize, email);
+			
+			this.setValue("#session.fGoodsList", fGoodsList);
 		} catch (Exception e) {
+			e.printStackTrace();
 			// 出现异常且为“error”时跳转到相应页面
 			if ("error".equals(e.getMessage()))
 				return "error";

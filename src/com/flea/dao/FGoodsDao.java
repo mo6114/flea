@@ -14,5 +14,5 @@ public interface FGoodsDao {
 
 	public FGoods queryById(String id);
 
-	public List<FGoods> queryByHql(String hql, int pageNum, int pageSize);
+	public List<FGoods> queryByHql(String hql, int pageNum, int pageSize , String email);
 }

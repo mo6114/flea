@@ -29,13 +29,15 @@
                     price = self.querySelector('.price').innerHTML.trim(),
                     cartHref = self.querySelector('.cart').href,
                     buyHref = self.querySelector('.buy').href,
+                    imgSrc = self.querySelector('.float-img').src;
                     data = {
                         name:name,
                         price:price,
                         introduction:desc,
                         amount:amount,
                         cart:cartHref,
-                        buy:buyHref
+                        buy:buyHref,
+                        img:imgSrc
                     }
                 glo_float.pop(data);
                 e.preventDefault()

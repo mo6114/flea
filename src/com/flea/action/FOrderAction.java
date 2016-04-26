@@ -22,9 +22,39 @@ public class FOrderAction extends BaseAction {
 	private int amount;
 	private String space;
 	private Date saleTime;
+	private int status;
+	private int pageNum;
+	private int pageSize;
 	private List<String> fGoodsIdList;
 	private FOrderService fOrderService;
 	private FGoodsService fGoodsService;
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public int getPageNum() {
+		if (pageNum == 0)
+			return 1;
+		else
+			return pageNum;
+	}
+
+	public void setPageNum(int pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
 
 	public List<String> getfGoodsIdList() {
 		return fGoodsIdList;
@@ -189,17 +219,97 @@ public class FOrderAction extends BaseAction {
 		Set<FGoods> fGoodsList = new HashSet<FGoods>();
 		for (String fGoodsId : fGoodsIdList) {
 			fGoodsList.add(fGoodsService.queryById(fGoodsId, 0));
-			System.out.println(fGoodsId);
 		}
 
 		// List<FGoods> shoppingCart = (List<FGoods>)
 		// this.findValue("#session.shoppingCart");
-		Set<FGoods> shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
+		Set<FGoods> shoppingCart = null;
+		if ((Set<FGoods>) this.findValue("#session.shoppingCart") != null)
+			shoppingCart = (Set<FGoods>) this.findValue("#session.shoppingCart");
 		shoppingCart.removeAll(fGoodsList);
 
-		if (shoppingCart.isEmpty())
+		if (shoppingCart == null || shoppingCart.isEmpty())
 			this.removeSession("shoppingCart");
 
 		return fGoodsList;
+	}
+
+	// 根据status生成HQL,0代表全部交易，1代表待交易商品，2代表已完成交易，3代表已取消交易
+	public String queryByStatusForBuyer() {
+		try {
+			if (status == 0)
+				status = (int) this.findValue("#session.fOrderForBuyerStatus");
+			this.setValue("#session.fOrderForBuyerStatus", status);
+			String email = (String) this.findValue("#session.email");
+
+			List<FOrder> fOrderList = fOrderService.queryByStatusForBuyer(status, getPageNum(), pageSize, email);
+
+			this.setValue("#session.fOrderList", fOrderList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
+
+	// 根据status生成HQL,0代表全部交易，1代表待交易商品，2代表已完成交易，3代表已取消交易
+	public String queryByStatusForSaler() {
+		try {
+			if (status == 0)
+				status = (int) this.findValue("#session.fOrderForSalerStatus");
+			this.setValue("#session.fOrderForSalerStatus", status);
+			String email = (String) this.findValue("#session.email");
+
+			List<FOrder> fOrderList = fOrderService.queryByStatusForSaler(status, getPageNum(), pageSize, email);
+
+			this.setValue("#session.fOrderList", fOrderList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
+
+	// 确认订单
+	public String confirmOrder() {
+		try {
+			fOrderService.confirmOrder(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
+
+	// 买家取消订单
+	public String cancelOrderForBuyer() {
+		try {
+			fOrderService.cancelOrderForBuyer(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
+
+	// 卖家取消订单
+	public String cancelOrderForSaler() {
+		try {
+			fOrderService.cancelOrderForSaler(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
 	}
 }
