@@ -1,0 +1,40 @@
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.cal-bar>.cal-bar_item{
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    clear: both;
+}
+.cal-bar{
+    text-align: right;
+}
+.cal-bar>.input-group{
+    width:49%;
+    margin-bottom: 10px;
+}
+.cal-bar>.input-group span{
+    display: table-cell;
+}
+.cal-bar .num {
+    font-size: 20px;
+    color: red;
+}
+.cal-bar span {
+    display: inline-block;
+}
+.shopCart img {
+    width:50px;
+    height:60px;
+}
+.cal-bar ::after {
+    content: '';
+    width: 0;
+    height: 0;
+    display: block;
+    clear: both;
+}

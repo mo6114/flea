@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>商品列表</title>
 	<link rel="stylesheet" href="css/item.css">
+	<link rel="stylesheet" href="css/shopCart.css">
 	<link rel="stylesheet" href="../public/css/all-cgy.css">
 	<link rel="stylesheet" href="../public/css/main.css">
 	<link rel="stylesheet" href="../public/css/top_bar.css">
@@ -36,6 +37,57 @@
 			<jsp:include page="/pages/common/categoryList.jsp"></jsp:include>
 			<!-- 右侧商品展示 -->
 			<div class="show">
+				<table class="table shopCart table-hover">
+					<caption><h3>购物车</h3></caption>
+					<thead>
+					<tr>
+						<th><input class="check-all-js" type="checkbox"> 全选</th>
+						<th>商品名</th>
+						<th>商品分类</th>
+						<th>价格</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr class="item-js">
+						<td><input class="check-js" type="checkbox"></td>
+						<td><img src="2.jpg"><span class="item_name-js">HTTP权威指南</span></td>
+						<td class="item_cgy-js">图书</td>
+						<td class="item_price-js">69.6</td>
+						<td><a type="button" class="btn btn-danger">删除</a></td>
+					</tr>
+					<tr class="item-js">
+						<td><input class="check-js" type="checkbox"></td>
+						<td><img src="2.jpg"><span class="item_name-js">HTTP权威指南</span></td>
+						<td class="item_cgy-js">图书</td>
+						<td class="item_price-js">69.6</td>
+						<td><a type="button" class="btn btn-danger">删除</a></td>
+					</tr>
+					<tr class="item-js">
+						<td><input class="check-js" type="checkbox"></td>
+						<td><img src="2.jpg"><span class="item_name-js">HTTP权威指南</span></td>
+						<td class="item_cgy-js">图书</td>
+						<td class="item_price-js">69.6</td>
+						<td><a type="button" class="btn btn-danger">删除</a></td>
+					</tr>
+					</tbody>
+				</table>
+				<div class="cal-bar">
+					<form>
+
+					</form>
+					<div class="input-group fl">
+						<span class="input-group-addon">交易地址</span>
+						<input type="text" class="form-control" placeholder="请填写您的交易地址">
+					</div>
+					<div class="input-group fr">
+						<span class="input-group-addon">交易时间</span>
+						<input type="text" class="form-control" placeholder="请填写您的交易时间">
+					</div>
+					<div class="cal-bar_item">已选商品<span class="item-num-js num">2</span>件</div>
+					<div class="cal-bar_item">合计: ¥<span class="item-sum-js num">52</span></div>
+					<button type="button" class="btn btn-info">确认下单</button>
+				</div>
 				<form action="${pageContext.request.contextPath}/fOrder/buyGoods"
 					method="post">
 					<s:iterator value="#session.shoppingCart">
@@ -64,5 +116,6 @@
 	<script src="../public/login-output/js/glo-validate.js"></script>
 	<script src="../public/js/sign-in-up.js"></script>
 	<script src="index.js"></script>
+	<script src="shopCart.js"></script>
 </body>
 </html>
