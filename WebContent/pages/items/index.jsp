@@ -50,6 +50,22 @@
 	<script src="../public/login-output/js/glo-validate.js"></script>
 	<script src="../public/item_float/js/glo-float.js"></script>
 	<script src="../public/js/sign-in-up.js"></script>
+	<script>
+	//===============强制登录模块=============//
+	(function(){
+	var aForce = document.querySelectorAll('.force');
+	//===添加强制登录事件==//
+	for(var i=0,item;item = aForce[i++];){
+	item.addEventListener('click',function(e){
+	if('${sessionScope.email}'===''){
+	glo_login.pop();
+	e.preventDefault();
+	}
+
+	},false);
+	}
+	})();
+	</script>
 	<script src="index.js"></script>
 </body>
 </html>
