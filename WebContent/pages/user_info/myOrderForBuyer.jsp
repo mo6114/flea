@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="../public/css/search_bar.css">
 <link rel="stylesheet" href="../public/css/nav.css">
 <link rel="stylesheet" href="../public/css/user_info_content.css">
+	<link rel="stylesheet" href="../public/item_float/glo-float.css">
+	<link rel="stylesheet" href="allGoods.css">
 <link rel="stylesheet"
 	href="../public/login-output/css/login-output.css">
 <link rel="stylesheet" href="../public/login-output/css/select.css">
@@ -46,65 +48,53 @@
 						<a href = "${pageContext.request.contextPath}/fOrder/cancelOrderForBuyer?id=<s:property value='id'/>">取消订单</a>
 					</s:if>
 				</s:iterator>
+				<table class="table table-hover">
+					<caption>我的订单</caption>
+					<thead>
+					<tr>
+						<th>商品名</th>
+						<th>价格</th>
+						<th>买家</th>
+						<th>卖家</th>
+						<th>交易时间</th>
+						<th>交易地点</th>
+						<th style="text-align: center">操作</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class="title title-js">HTTP权威指南</td>
+						<td class="price-js">69.6</td>
+						<td>jabbla</td>
+						<td>jabbla</td>
+						<td><span class="time">2016.2.2</span></td>
+						<td><span class="place">吉大南校莘子园</span></td>
+						<td style="text-align: center"><a type="button" class="btn btn-link">确认订单</a><a type="button" class="btn btn-link">取消订单</a></td>
+					</tr>
+					<tr>
+						<td class="title title-js">HTTP权威指南</td>
+						<td class="price-js">69.6</td>
+						<td>jabbla</td>
+						<td>jabbla</td>
+						<td><span class="time">2016.2.2</span></td>
+						<td><span class="place">吉大南校莘子园</span></td>
+						<td style="text-align: center"><a type="button" class="btn btn-link">确认订单</a><a type="button" class="btn btn-link">取消订单</a></td>
+					</tr>
+					<tr>
+						<td class="title title-js">HTTP权威指南</td>
+						<td class="price-js">69.6</td>
+						<td>jabbla</td>
+						<td>jabbla</td>
+						<td><span class="time">2016.2.2</span></td>
+						<td><span class="place">吉大南校莘子园</span></td>
+						<td style="text-align: center"><a type="button" class="btn btn-link">确认订单</a><a type="button" class="btn btn-link">取消订单</a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
-			</div>
-		</div>
-	</div>
-	<div id="glo-login-cover">
-		<div id="glo-login-wraper">
-			<div class="cont_tabs_login">
-				<ul class='ul_tabs'>
-					<li class="active"><a class="signin-btn sign-btn"
-						data-typ="signin">登录</a> <span class="linea_bajo_nom"></span></li>
-					<li><a class="signup-btn sign-btn" data-typ="signup">注册</a> <span
-						class="linea_bajo_nom"></span></li>
-				</ul>
-			</div>
-			<div class="login-form-area" data-typ="signin">
-				<div class="line">
-					<input type="text" class="username" name="username"
-						placeholder="用户名/电子邮箱"><br>
-				</div>
-				<div class="line">
-					<input type="password" class="password" name="password"
-						placeholder="密码"><br>
-				</div>
-				<button class="submit" type="submit">登录</button>
-			</div>
-			<div class="signup-form-area" id="signup-form-area" data-typ="signup">
-				<div class="line">
-					<input type="text" class="username" name="username"
-						placeholder="用户名"><br> <label
-						class="tip username-tip"></label>
-				</div>
-				<div class="line">
-					<input type="text" class="email" name="email" placeholder="邮箱"><br>
-					<label class="tip email-tip"></label>
-				</div>
-				<div class="line">
-					<input type="password" class="password" name="password"
-						placeholder="密码"><br> <label class="tip password-tip"></label>
-				</div>
-				<div class="line">
-					<input type="password" class="confirm_password"
-						placeholder="再次输入密码"><br> <label
-						class="tip confirm_password-tip"></label>
-				</div>
-				<div class="line">
-					<input type="text" class="phone" name="mobile" placeholder="手机号码"><br>
-					<label class="tip phone-tip"></label>
-				</div>
-				<div id="glo-select">
-					<div class="wraper">
-						<ul class="select-list province fold">
-						</ul>
-						<ul class="select-list school fold"></ul>
-					</div>
-				</div>
-				<button class="submit" type="submit">注册</button>
-			</div>
-		</div>
-	</div>
 	<script src="../public/jquery/dist/jquery.min.js"></script>
 	<script src="../public/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../public/login-output/js/XMLasynchronous.js"></script>
@@ -112,5 +102,8 @@
 	<script src="../public/login-output/js/glo-validate.js"></script>
 	<script src="../public/login-output/js/glo-select.js"></script>
 	<script src="../public/js/sign-in-up.js"></script>
+	<script src="../public/item_float/js/glo-float.js"></script>
+	<script src="../public/js/myFuncs.js"></script>
+	<script src="allGoods.js"></script>
 </body>
 </html>

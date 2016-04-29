@@ -1,0 +1,27 @@
+.cgy-block .thumbnail {
+    width:33%;
+    height:300px;
+    text-align: center;
+    border: none;
+   float: left;
+}
+.cgy-block .thumbnail img{
+    width:150px;
+    height:200px;
+}
+.cgy-block .more{
+    float: right;
+}
+.cgy-block {
+    height:700px;
+}
+.banner-list{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+.banner-list li{
+    position: absolute;
+    width:100%;
+    height:100%;
+}
