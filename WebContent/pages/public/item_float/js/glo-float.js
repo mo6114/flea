@@ -42,6 +42,13 @@ var glo_float = (function(){
                 alert('请先初始化浮窗');
             }
 
+        },
+        pureShow:function(){
+            var oCart = instance.dom.querySelector('.cart');
+            var oBuy = instance.dom.querySelector('.buy');
+            oCart.style.display = 'none';
+            oBuy.style.display = 'none';
+
         }
     }
 })();

@@ -73,9 +73,3 @@
     background-color: red;
     border-color: red;
 }
-.float-link {
-    cursor: pointer;
-}
-.float-link:hover{
-    color:blue;
-}

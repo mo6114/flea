@@ -1,0 +1,6 @@
+.title {
+    cursor:pointer;
+}
+.title:hover {
+    color: #00a1cb;
+}
