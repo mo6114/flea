@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../public/css/search_bar.css">
 <link rel="stylesheet" href="../public/css/nav.css">
 <link rel="stylesheet" href="../public/css/user_info_content.css">
-	<link rel="stylesheet" href="../public/item_float/glo-float.css">
+<link rel="stylesheet" href="../public/item_float/glo-float.css">
 <link rel="stylesheet" href="allGoods.css">
 <link rel="stylesheet"
 	href="../public/login-output/css/login-output.css">
@@ -38,44 +38,60 @@
 			<div class="right-side">
 				<jsp:include page="/pages/user_info/myGoods/head.jsp"></jsp:include>
 
-				<s:iterator value="#session.fGoodsList">
+				<%-- <s:iterator value="#session.fGoodsList">
 	name:<s:property value="name" />
 	email:<s:property value="email" />
 	id:<s:property value="id" />
-	<s:if test="#session.status==1">
-		<a href = "${pageContext.request.contextPath}/fGoods/goodsSoldOut?id=<s:property value='id'/>">下架商品</a>
-	</s:if>
+					<s:if test="#session.status==1">
+						<a
+							href="${pageContext.request.contextPath}/fGoods/goodsSoldOut?id=<s:property value='id'/>">下架商品</a>
+					</s:if>
 					<br>
-				</s:iterator>
+				</s:iterator> --%>
 				<table class="table table-hover">
-					<caption>全部商品</caption>
+					<%-- <caption>全部商品</caption> --%>
 					<thead>
-					<tr>
-						<th>商品名</th>
-						<th>价格</th>
-						<th>状态</th>
-						<th>操作</th>
-					</tr>
+						<tr>
+							<th>商品名</th>
+							<th>价格</th>
+							<th>状态</th>
+							<th>操作</th>
+						</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td class="title title-js">HTTP权威指南</td>
-						<td class="price-js">69.6</td>
-						<td>已上架</td>
-						<td><button type="button" class="btn btn-info">下架</button></td>
-					</tr>
-					<tr>
-						<td class="title title-js">HTTP权威指南</td>
-						<td class="price-js">69.6</td>
-						<td>已上架</td>
-						<td><button type="button" class="btn btn-info">下架</button></td>
-					</tr>
-					<tr>
-						<td class="title title-js">HTTP权威指南</td>
-						<td class="price-js">69.6</td>
-						<td>已上架</td>
-						<td><button type="button" class="btn btn-info">下架</button></td>
-					</tr>
+
+						<!-- 商品展示 -->
+						<s:iterator value="#session.fGoodsList">
+							<tr>
+								<td class="title title-js"><s:property value="name" /></td>
+								<td class="price-js"><s:property value="price" /></td>
+								<s:if test="#session.status==1">
+									<td>已上架</td>
+								</s:if>
+								<s:else><td>已下架</td></s:else>
+								<s:if test="#session.status==1">
+									<td><a
+										href="${pageContext.request.contextPath}/fGoods/goodsSoldOut?id=<s:property value='id'/>"
+										type="button" class="btn btn-info">下架</a></td>
+								</s:if>
+								<s:else>
+									<td>无</td>
+								</s:else>
+							</tr>
+						</s:iterator>
+
+						<!-- <tr>
+							<td class="title title-js">HTTP权威指南</td>
+							<td class="price-js">69.6</td>
+							<td>已上架</td>
+							<td><button type="button" class="btn btn-info">下架</button></td>
+						</tr>
+						<tr>
+							<td class="title title-js">HTTP权威指南</td>
+							<td class="price-js">69.6</td>
+							<td>已上架</td>
+							<td><button type="button" class="btn btn-info">下架</button></td>
+						</tr> -->
 					</tbody>
 				</table>
 

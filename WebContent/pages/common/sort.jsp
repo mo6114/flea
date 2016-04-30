@@ -8,7 +8,6 @@
 <div class="list-bar">
 	<ul class="sortTag">
 		<s:if test="#session.orderByNum==1">
-			<s:property value="#session.ruleNum" />
 			<s:if test="#session.ruleNum!=1">
 				<li class="tag"><a
 					href="${pageContext.request.contextPath}/fGoods/queryByConditions?orderByNum=1&ruleNum=0">名称降序</a><span></span></li>

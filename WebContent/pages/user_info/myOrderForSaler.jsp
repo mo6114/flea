@@ -35,6 +35,7 @@
 			<!-- 右侧我的商品展示 -->
 			<div class="right-side">
 				<jsp:include page="/pages/user_info/myOrder/headForSaler.jsp"></jsp:include>
+				<%-- 
 
 				<s:iterator var="hehe" value="#session.fOrderList">
 	sEmail:<s:property value="sEmail" />
@@ -48,7 +49,60 @@
 						<a href = "${pageContext.request.contextPath}/fOrder/cancelOrderForSaler?id=<s:property value='id'/>">取消订单</a>
 					</s:if>
 				</s:iterator>
+ --%>
+				<table class="table table-hover">
+					<%-- <caption>我的订单</caption> --%>
+					<thead>
+						<tr>
+							<th>商品名</th>
+							<th>价格</th>
+							<th>买家邮箱</th>
+							<th>卖家邮箱</th>
+							<th>交易时间</th>
+							<th>交易地点</th>
+							<th style="text-align: center">操作</th>
+						</tr>
+					</thead>
+					<tbody>
 
+						<s:iterator value="#session.fOrderList">
+							<tr>
+								<td class="title title-js"><s:property value="name" /></td>
+								<td class="price-js"><s:property value="price" /></td>
+								<td><s:property value="buyerEmail" /></td>
+								<td><s:property value="salerEmail" /></td>
+								<td><span class="time"><s:property value="saleTime" /></span></td>
+								<td><span class="place"><s:property value="place" /></span></td>
+								<s:if test="#session.fOrderForBuyerStatus==1">
+									<td style="text-align: center"><a type="button"
+										class="btn btn-link">取消订单</a></td>
+								</s:if>
+								<s:else>
+									<td style="text-align: center">无</td>
+								</s:else>
+							</tr>
+						</s:iterator>
+
+						<%-- <tr>
+						<td class="title title-js">HTTP权威指南</td>
+						<td class="price-js">69.6</td>
+						<td>jabbla</td>
+						<td>jabbla</td>
+						<td><span class="time">2016.2.2</span></td>
+						<td><span class="place">吉大南校莘子园</span></td>
+						<td style="text-align: center"><a type="button" class="btn btn-link">确认订单</a><a type="button" class="btn btn-link">取消订单</a></td>
+					</tr>
+					<tr>
+						<td class="title title-js">HTTP权威指南</td>
+						<td class="price-js">69.6</td>
+						<td>jabbla</td>
+						<td>jabbla</td>
+						<td><span class="time">2016.2.2</span></td>
+						<td><span class="place">吉大南校莘子园</span></td>
+						<td style="text-align: center"><a type="button" class="btn btn-link">确认订单</a><a type="button" class="btn btn-link">取消订单</a></td>
+					</tr> --%>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>

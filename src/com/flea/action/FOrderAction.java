@@ -12,6 +12,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.flea.entity.FGoods;
 import com.flea.entity.FOrder;
+import com.flea.entity.FOrderForPage;
 import com.flea.service.FGoodsService;
 import com.flea.service.FOrderService;
 import com.flea.util.StringUtil;
@@ -244,7 +245,14 @@ public class FOrderAction extends BaseAction {
 
 			List<FOrder> fOrderList = fOrderService.queryByStatusForBuyer(status, getPageNum(), pageSize, email);
 
-			this.setValue("#session.fOrderList", fOrderList);
+			List<FOrderForPage> fOrderForPage = new ArrayList<FOrderForPage>();
+			for (FOrder fOrder : fOrderList) {
+				FGoods fGoods = fGoodsService.queryById(fOrder.getGoodsId(), 0);
+				fOrderForPage.add(new FOrderForPage(fGoods.getName(), fGoods.getPrice(), fOrder.getbEmail(),
+						fOrder.getsEmail(), fOrder.getSaleTime(), fOrder.getSpace()));
+			}
+
+			this.setValue("#session.fOrderList", fOrderForPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 出现异常且为“error”时跳转到相应页面
@@ -264,7 +272,14 @@ public class FOrderAction extends BaseAction {
 
 			List<FOrder> fOrderList = fOrderService.queryByStatusForSaler(status, getPageNum(), pageSize, email);
 
-			this.setValue("#session.fOrderList", fOrderList);
+			List<FOrderForPage> fOrderForPage = new ArrayList<FOrderForPage>();
+			for (FOrder fOrder : fOrderList) {
+				FGoods fGoods = fGoodsService.queryById(fOrder.getGoodsId(), 0);
+				fOrderForPage.add(new FOrderForPage(fGoods.getName(), fGoods.getPrice(), fOrder.getbEmail(),
+						fOrder.getsEmail(), fOrder.getSaleTime(), fOrder.getSpace()));
+			}
+
+			this.setValue("#session.fOrderList", fOrderForPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 出现异常且为“error”时跳转到相应页面
