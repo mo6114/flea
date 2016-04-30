@@ -73,6 +73,7 @@ public class FOrderServiceImpl implements FOrderService {
 				fOrder.setGoodsId(goodsId);
 				fOrder.setStatus(1);
 				fOrder.setOrderTime(new Date());
+				fGoods.setStatus(0);
 
 				FUser bFUser = fUserDaoImpl.queryFUserByEmail(buyerEmail);
 				if (bFUser != null) {
@@ -88,7 +89,7 @@ public class FOrderServiceImpl implements FOrderService {
 
 			fOrderDao.insertFOrder(fOrder);
 
-			fGoods.setStatus(0);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

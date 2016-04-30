@@ -13,7 +13,7 @@
 		<li class="dropdown"><a href="#">我是买家</a>
 			<ul class="menue">
 				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="${pageContext.request.contextPath}/fOrder/queryByStatusForBuyer?status=4">我的订单</a></li>
+					href="${pageContext.request.contextPath}/fOrder/queryByStatusForBuyer?status=1">我的订单</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"
 					href="#">参加的拍卖</a></li>
 			</ul></li>
@@ -22,7 +22,7 @@
 				<li role="presentation"><a role="menuitem" tabindex="-1"
 					href="${pageContext.request.contextPath}/pages/user_info/onShelves.jsp">上架新商品</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"
-					href="${pageContext.request.contextPath}/fGoods/queryByStatus?status=3">我的商品</a></li>
+					href="${pageContext.request.contextPath}/fGoods/queryByStatus?status=1">我的商品</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"
 					href="${pageContext.request.contextPath}/fOrder/queryByStatusForSaler?status=4">我的订单</a></li>
 				<li role="presentation"><a role="menuitem" tabindex="-1"

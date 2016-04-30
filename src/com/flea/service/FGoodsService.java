@@ -15,4 +15,6 @@ public interface FGoodsService {
 	public List<FGoods> queryByStatus(int status, int pageNum, int pageSize , String email);
 
 	public FGoods queryById(String id, int times);
+	
+	public List<FGoods> queryByCategory(int categoryNum);
 }

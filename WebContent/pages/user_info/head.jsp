@@ -21,11 +21,11 @@
 	<div id="top_bar">
 		<div class="cart">
 			<span class="icon-shopping-cart">&nbsp;</span> <span
-				class="mallCart_name"><a href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum">(0)</span>
+				class="mallCart_name"><a href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum"></span>
 			<span class="icon-angle-down">&nbsp;</span>
 		</div>
 		<div class="btn_set">
-			<a href="${pageContext.request.contextPath}/pages/user_info/user_info.jsp"><s:property value = "#session.userName"/></a>
+			<a href="${pageContext.request.contextPath}/fGoods/queryByStatus?status=1"><s:property value = "#session.userName"/></a>
 			<a href="${pageContext.request.contextPath}/fUser/quit">退出</a>
 		</div>
 	</div>

@@ -209,7 +209,7 @@ public class FGoodsAction extends BaseAction {
 		}
 		return "success";
 	}
-	
+
 	// 商品下架
 	public String goodsSoldOut() {
 		try {
@@ -222,7 +222,7 @@ public class FGoodsAction extends BaseAction {
 		return "success";
 	}
 
-	//通过条件查询
+	// 通过条件查询
 	public String queryByConditions() {
 		try {
 			int oldCategoryNum = 0;
@@ -265,34 +265,54 @@ public class FGoodsAction extends BaseAction {
 		return "success";
 	}
 
-	//通过Id查询
+	// 通过Id查询
 	public void queryById() {
 		try {
 			fGoods = fGoodsService.queryById(id, times);
 			String fGoodsToString = new GsonBuilder().create().toJson(fGoods);
 			PrintWriter printWriter = getPrintWriter();
-			
+
 			printWriter.print(fGoods.getIntroduction());
 			printWriter.flush();
 		} catch (Exception e) {
 			// 出现异常且为“error”时跳转到相应页面
-			/*if ("error".equals(e.getMessage()))
-				return "error";*/
+			/*
+			 * if ("error".equals(e.getMessage())) return "error";
+			 */
 		}
-		
+
 	}
-	
-	//通过status查询订单，1代表上架，2代表下架
+
+	// 通过status查询订单，1代表上架，2代表下架
 	public String queryByStatus() {
 		try {
-			if(status == 0)
-				status = (int)this.findValue("#session.status");
+			if (status == 0)
+				status = (int) this.findValue("#session.status");
 			this.setValue("#session.status", status);
-			String email = (String)this.findValue("#session.email");
-			
+			String email = (String) this.findValue("#session.email");
+
 			List<FGoods> fGoodsList = fGoodsService.queryByStatus(status, getPageNum(), pageSize, email);
-			
+
 			this.setValue("#session.fGoodsList", fGoodsList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			// 出现异常且为“error”时跳转到相应页面
+			if ("error".equals(e.getMessage()))
+				return "error";
+		}
+		return "success";
+	}
+
+	public String infoForHomePage() {
+		try {
+			List<FGoods> book = fGoodsService.queryByCategory(1);
+			List<FGoods> cloth = fGoodsService.queryByCategory(2);
+			List<FGoods> electron = fGoodsService.queryByCategory(3);
+			List<FGoods> other = fGoodsService.queryByCategory(4);
+			this.setValue("#session.book", book);
+			this.setValue("#session.cloth", cloth);
+			this.setValue("#session.electron", electron);
+			this.setValue("#session.other", other);
 		} catch (Exception e) {
 			e.printStackTrace();
 			// 出现异常且为“error”时跳转到相应页面

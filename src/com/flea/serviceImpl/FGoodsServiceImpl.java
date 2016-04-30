@@ -134,4 +134,22 @@ public class FGoodsServiceImpl implements FGoodsService {
 		}
 		transaction.commit();
 	}
+
+	@Override
+	public List<FGoods> queryByCategory(int categoryNum) {
+		// 获取session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+
+		List<FGoods> fGoods = null;
+		
+		try {
+			fGoods = fGoodsDao.queryByCategory(categoryNum);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("error");
+		}
+		transaction.commit();
+		return fGoods;
+	}
 }

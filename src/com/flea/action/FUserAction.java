@@ -124,14 +124,15 @@ public class FUserAction extends BaseAction {
 	}
 
 	// 用户退出
-	public void quit() {
+	public String quit() {
 		this.removeSession("email");
 		this.removeSession("userName");
 
-		System.out.println("111");
+		/*System.out.println("111");
 		PrintWriter printWriter = getPrintWriter();
 		printWriter.print("true");
-		printWriter.flush();
+		printWriter.flush();*/
+		return "success";
 	}
 
 	// 判断邮箱是否存在

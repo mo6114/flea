@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.flea.dao.FGoodsDao;
 import com.flea.entity.FGoods;
+import com.flea.util.CategoryUtil;
 
 public class FGoodsDaoImpl implements FGoodsDao {
 
@@ -65,15 +66,30 @@ public class FGoodsDaoImpl implements FGoodsDao {
 	}
 
 	@Override
-	public List<FGoods> queryByHql(String hql, int pageNum, int pageSize , String email) {
+	public List<FGoods> queryByHql(String hql, int pageNum, int pageSize, String email) {
 		// 获取session并开启事务
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		
+
 		Query query = session.createQuery(hql);
 		query.setFirstResult((pageNum - 1) * pageSize);
 		query.setMaxResults(pageSize);
 		query.setString(0, email);
+
+		return query.list();
+	}
+
+	@Override
+	public List<FGoods> queryByCategory(int categoryNum) {
+		// 获取session并开启事务
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+		String hql = "from FGoods where one_level = ? order by times desc";
+		Query query = session.createQuery(hql);
+		query.setFirstResult(1);
+		query.setMaxResults(6);
+		query.setString(0, CategoryUtil.getCategory(categoryNum));
 		
 		return query.list();
 	}
