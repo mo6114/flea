@@ -103,10 +103,6 @@ public class FUserAction extends BaseAction {
 		try {
 			fUser = fUserServiceImpl.login(userName, password);
 		} catch (Exception e) {
-			// 出现异常且为“error”时跳转到相应页面
-			/*
-			 * if ("error".equals(e.getMessage())) return "error";
-			 */
 		}
 		PrintWriter printWriter = getPrintWriter();
 		if (fUser == null) {
@@ -128,10 +124,6 @@ public class FUserAction extends BaseAction {
 		this.removeSession("email");
 		this.removeSession("userName");
 
-		/*System.out.println("111");
-		PrintWriter printWriter = getPrintWriter();
-		printWriter.print("true");
-		printWriter.flush();*/
 		return "success";
 	}
 

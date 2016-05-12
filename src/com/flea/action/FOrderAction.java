@@ -184,7 +184,7 @@ public class FOrderAction extends BaseAction {
 
 			String buyerEmail = (String) this.findValue("#session.email");
 
-			System.out.println("space:" + getRequest().getParameter("space"));
+			//System.out.println("space:" + getRequest().getParameter("space"));
 			String[] tmp = getRequest().getParameterValues("fGoodsIdList");
 			Set<FGoods> fGoodsList = shoppingCartOperate(tmp);
 			string = fOrderService.createFOrder(fOrder, fGoodsList, buyerEmail);

@@ -222,7 +222,7 @@ public class FGoodsAction extends BaseAction {
 		return "success";
 	}
 
-	// 通过条件查询
+	// 通过条件查询,categoryNum、pageNum、orderByNum
 	public String queryByConditions() {
 		try {
 			int oldCategoryNum = 0;
@@ -283,7 +283,7 @@ public class FGoodsAction extends BaseAction {
 
 	}
 
-	// 通过status查询订单，1代表上架，2代表下架
+	// 通过status查询商品，1代表上架，2代表下架
 	public String queryByStatus() {
 		try {
 			if (status == 0)
