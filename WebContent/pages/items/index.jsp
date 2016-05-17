@@ -41,7 +41,7 @@
 				<!--banner区域-->
 				<div class="banner">
 					<ul class="banner-list">
-						<li><img src="http://placehold.it/976x400"></li>
+						<li><img src="1.jpg"></li>
 					</ul>
 				</div>
 				<!--分类展示-->

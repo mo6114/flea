@@ -8,8 +8,9 @@
 	<div id="top_bar">
 		<div class="cart">
 			<span class="icon-shopping-cart">&nbsp;</span> <span
-				class="mallCart_name"><a class="force" href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum"></span>
-			<span class="icon-angle-down">&nbsp;</span>
+				class="mallCart_name"><a class="force"
+				href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span>
+			<span class="mallCart_proNum"></span> <span class="icon-angle-down">&nbsp;</span>
 		</div>
 		<div class="btn_set">
 			<button class="memberOption memberLogin btn btn-primary">登录</button>
@@ -21,12 +22,15 @@
 	<div id="top_bar">
 		<div class="cart">
 			<span class="icon-shopping-cart">&nbsp;</span> <span
-				class="mallCart_name"><a href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span> <span class="mallCart_proNum"></span>
-			<span class="icon-angle-down">&nbsp;</span>
+				class="mallCart_name"><a
+				href="${pageContext.request.contextPath}/pages/items/shoppingCart.jsp">购物车</a></span>
+			<span class="mallCart_proNum"></span> <span class="icon-angle-down">&nbsp;</span>
 		</div>
 		<div class="btn_set">
-			<a href="${pageContext.request.contextPath}/fGoods/queryByStatus?status=1"><s:property value = "#session.userName"/></a>
-			<a href="${pageContext.request.contextPath}/fUser/quit">退出</a>
+			<a
+				href="${pageContext.request.contextPath}/fGoods/queryByStatus?status=1"><s:property
+					value="#session.userName" /></a> <a
+				href="${pageContext.request.contextPath}/fUser/quit">退出</a>
 		</div>
 	</div>
 </s:else>

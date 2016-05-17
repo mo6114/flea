@@ -46,4 +46,29 @@
         },false);
     }
 })();
-
+//===============加入购物车模块=============//
+(function(){
+	var aCart = document.querySelectorAll('.cart'),
+		aC = [];
+	for(var i=0;i<aCart.length;i++){
+		if(aCart[i].tagName==='A'){
+			aC.push(aCart[i]);
+		}
+	}
+	aC.forEach(function(item,index,array){
+		item.onclick = function(){
+			item.innerHTML = '发送中....';
+			item.classList.remove('btn-warning');
+			item.classList.add('btn-info');
+			var state = true;
+			//模拟数据接受过程
+			setTimeout(function(){
+				if(state){
+					item.innerHTML = '加入成功';
+					item.classList.remove('btn-info');
+					item.classList.add('btn-success');
+				}
+			},5000);
+		}
+	});
+})();

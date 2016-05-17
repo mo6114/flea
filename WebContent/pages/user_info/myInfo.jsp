@@ -34,37 +34,7 @@
 		<div id="content">
 			<jsp:include page="/pages/common/userInfomation.jsp"></jsp:include>
 			<div class="right-side">
-				<h3>上架新商品</h3>
-            <form role="form" action="${pageContext.request.contextPath}/fGoods/onShelves" method = "post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="inputfile">图片</label>
-                    <input type="file" id="inputfile" name = "picture">
-                    <p class="help-block">上传您的商品图片</p>
-                </div>
-                <div class="form-group">
-                    <label for="name">名称</label>
-                    <input type="text" class="form-control" id="name" name = "name" placeholder="请输入名称">
-                </div>
-                <div class="form-group">
-                    <label for="name">简介</label>
-                    <input type="text" class="form-control" id="introduction" name = "introduction" placeholder="请输入简介">
-                </div>
-                <div class="form-group">
-                    <label for="name">价格</label>
-                    <input type="text" class="form-control" id="price" name = "price" placeholder="请输入价格">
-                </div>
-                <div class="form-group">
-                    <label for="name">数量</label>
-                    <input type="text" class="form-control" id="amount" name = "amount" placeholder="请输入数量">
-                </div>
-                <div class="form-group">
-                    <label for="name">一级菜单</label>
-                    <select name = "one_level" class="one_level"></select>
-                    <label for="name">二级菜单</label>
-                    <select name = "two_level" class="two_level"></select>
-                </div>
-                    <button type="submit" class="btn btn-default">提交</button>
-            </form>
+				
 			</div>
 		</div>
 	</div>
@@ -75,6 +45,5 @@
 	<script src="../public/login-output/js/glo-validate.js"></script>
 	<script src="../public/login-output/js/glo-select.js"></script>
 	<script src="../public/js/sign-in-up.js"></script>
-	<script src="../public/js/categy.js"></script>
 </body>
 </html>

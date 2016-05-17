@@ -23,3 +23,12 @@
 #content .menue{
     padding-left: 40px;
 }
+.left-side .listTitle {
+	cursor: default;
+    color: grey;
+	font-size: 18px;
+}
+.line-i {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}

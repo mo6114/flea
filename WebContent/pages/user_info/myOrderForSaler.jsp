@@ -35,23 +35,7 @@
 			<!-- 右侧我的商品展示 -->
 			<div class="right-side">
 				<jsp:include page="/pages/user_info/myOrder/headForSaler.jsp"></jsp:include>
-				<%-- 
-
-				<s:iterator var="hehe" value="#session.fOrderList">
-	sEmail:<s:property value="sEmail" />
-	bEmail:<s:property value="bEmail" />
-	<s:property value="bEmail"/>
-	space:<s:property value="space"/>
-	id:<s:property value="id" />
-	sEmail:<s:property value="hehe.sEmail"/>
-					<br>
-					<s:if test="#session.fOrderForSalerStatus==1">
-						<a href = "${pageContext.request.contextPath}/fOrder/cancelOrderForSaler?id=<s:property value='id'/>">取消订单</a>
-					</s:if>
-				</s:iterator>
- --%>
 				<table class="table table-hover">
-					<%-- <caption>我的订单</caption> --%>
 					<thead>
 						<tr>
 							<th>商品名</th>

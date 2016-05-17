@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../public/css/nav.css">
     <link rel="stylesheet" href="../public/css/user_info_content.css">
     <link rel="stylesheet" href="../public/item_float/glo-float.css">
+    <link rel="stylesheet" href="../public/css/myAcount.css">
     <link rel="stylesheet" href="allGoods.css">
     <link rel="stylesheet"
           href="../public/login-output/css/login-output.css">
@@ -34,8 +35,12 @@
     </div>
     <div id="content">
         <jsp:include page="/pages/common/userInfomation.jsp"></jsp:include>
-        <!-- 右侧充值界面 -->
-        >
+        <div class="right-side">
+        	余额:<span>100 RMB</span><br>
+            <label for="name">充值</label>
+            <input type="text" class="short-bar" placeholder="输入充值金额">
+            <button type="button" class="btn btn-warning">充值</button>    
+        </div>
     </div>
 
 </div>
